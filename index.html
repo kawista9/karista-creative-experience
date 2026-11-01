@@ -394,7 +394,9 @@
 .gm-stage.gm-started .gm-herald-figure,.gm-stage.gm-finished .gm-herald-figure{opacity:1!important;transform:none!important}
 .gm-music{z-index:20!important;left:20.1%!important;top:28.5%!important;width:18%!important;height:16%!important;opacity:1!important}
 .gm-note{font-size:clamp(28px,2.5vw,48px)!important;text-shadow:0 0 12px #ffcd69,0 0 23px #ffd181!important}
-.gm-wall-cloud{display:none!important}
+.gm-wall-cloud{display:block!important;left:56%!important;top:24%!important;width:28%!important;height:31%!important;opacity:0!important;transform:translateY(40px)!important;transition:opacity 1.3s ease,transform 2s ease!important;animation:none!important}
+.gm-stage.gm-started .gm-wall-cloud{opacity:.78!important;transform:translateY(0)!important;animation:gm-hover 4.5s ease-in-out infinite alternate!important}
+.gm-stage.gm-map-enter .gm-wall-cloud{opacity:0!important;animation:none!important;transform:translateY(-85px)!important}
 .gm-wall-grid{position:absolute!important;z-index:22!important;left:17.3%!important;right:13.8%!important;top:61%!important;bottom:10.5%!important;height:auto!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:1fr!important;gap:1.4%!important;align-items:stretch!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
 .gm-stage.gm-map-on .gm-wall-grid{opacity:1!important;transform:none!important}
 .gm-wall{opacity:0!important;transform:translate3d(0,55px,0) scale(.94)!important;filter:none!important;transition:opacity 1.15s ease,transform 1.35s cubic-bezier(.15,.85,.2,1)!important}
@@ -484,7 +486,7 @@
   if(reduced){finish();return;}
   void stage.offsetWidth;stage.classList.add('gm-started');
   // A single timed sequence; scrolling does not control individual frames.
-  later(()=>stage.classList.add('gm-map-enter','gm-map-on'),2700);
+  later(()=>stage.classList.add('gm-map-enter','gm-map-on'),11400);
   later(()=>reveal(0),3500);
   later(()=>reveal(1),5400);
   later(()=>reveal(2),7300);
@@ -492,11 +494,11 @@
   later(()=>{
    stage.classList.add('gm-moving');
    move(24,39,12,63);
-  },11000);
-  later(()=>move(35,31,20,54),13300);
-  later(()=>move(44,23,30,42),15700);
-  later(()=>move(51,9,44,23),18100);
-  later(()=>finish(),21000);
+  },12500);
+  later(()=>move(35,31,20,54),14600);
+  later(()=>move(44,23,30,42),16800);
+  later(()=>move(51,9,44,23),19000);
+  later(()=>finish(),22400);
  }
  stage.querySelector('#gm-replay')?.addEventListener('click',play);
  stage.querySelector('#gm-complete')?.addEventListener('click',finish);
