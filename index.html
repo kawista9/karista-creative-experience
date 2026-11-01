@@ -200,7 +200,7 @@
 .gm4-track,.gm4-stage,.gm4-ending{box-sizing:border-box;font-family:Georgia,'Times New Roman',serif}
 .gm4-track *,.gm4-stage *,.gm4-ending *{box-sizing:border-box}
 .gm4-track{height:145svh;background:#071728;position:relative}
-.gm4-stage{position:sticky;top:0;width:100%;height:100svh;min-height:530px;overflow:hidden;isolation:isolate;background:#081728 url('assets/ginomai/v4/mountain-background.webp') center center/cover no-repeat;color:#f4d6a5}
+.gm4-stage{position:sticky;top:0;width:100%;height:100svh;min-height:530px;overflow:hidden;isolation:isolate;background:#081728 url('assets/ginomai/v4/mountain-organic.avif') center center/cover no-repeat;color:#f4d6a5}
 .gm4-stage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,#0715252b,transparent 40%),linear-gradient(0deg,#04102180,transparent 18%)}
 .gm4-nav{position:absolute;top:0;left:5.8%;right:5.8%;height:6.1%;min-height:38px;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #e7b57966;letter-spacing:.16em;font:500 clamp(10px,.94vw,15px) Georgia,serif;color:#f9d69c}
 .gm4-nav a{color:inherit;text-decoration:none;white-space:nowrap}.gm4-nav .gm4-navlinks{display:flex;gap:clamp(13px,3vw,50px);align-items:center}.gm4-nav strong{border-bottom:2px solid #ffd587;padding:0 0 12px;color:#ffe5b5;font-weight:500}
@@ -224,12 +224,6 @@
 .gm4-map{left:23%;top:7.2%;width:76%;height:60%;z-index:9;opacity:0;transform:translate(5%,5%) scale(.945);clip-path:inset(0 98% 0 0);transition:opacity 2.3s ease,transform 3.2s cubic-bezier(.19,1,.24,1),clip-path 4s cubic-bezier(.15,.65,.28,1)}
 .gm4-map img{display:block;width:100%;height:100%;object-fit:contain;object-position:center center;filter:drop-shadow(0 16px 20px #000b)}
 .gm4-stage.gm4-map-on .gm4-map{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
-.gm4-cloud-preview{left:48%;top:22%;width:19%;height:18%;z-index:11;opacity:0;transform:translate(-22%,28%) scale(.9);transition:opacity 1.1s ease,transform 2.5s cubic-bezier(.2,.8,.3,1)}
-.gm4-cloud-preview img,.gm4-travelers-preview img{display:block;width:100%;height:100%;object-fit:contain}
-.gm4-stage.gm4-cloud-on .gm4-cloud-preview{opacity:.93;transform:translate(4%,-15%) scale(1)}
-.gm4-travelers-preview{left:37%;top:39%;width:19%;height:15%;z-index:12;opacity:0;transform:translate(-35%,18%);transition:opacity 1s ease,transform 4.2s ease-out}
-.gm4-stage.gm4-cloud-on .gm4-travelers-preview{opacity:1;transform:translate(20%,-8%)}
-.gm4-stage.gm4-map-on .gm4-cloud-preview,.gm4-stage.gm4-map-on .gm4-travelers-preview{opacity:0;transition:opacity 1.8s ease}
 .gm4-cards{position:absolute;z-index:24;left:18.2%;right:15.4%;top:60.8%;bottom:8.4%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5%;align-items:center}
 .gm4-card{border:0;background:transparent;min-width:0;min-height:0;height:100%;width:100%;padding:0;opacity:0;transform:translateY(80px) scale(.9);transition:opacity 1.3s ease,transform 1.4s cubic-bezier(.16,.93,.32,1);cursor:pointer}
 .gm4-card img{display:block;width:100%;height:100%;object-fit:contain;object-position:center center;filter:drop-shadow(0 11px 13px #0008)}
@@ -251,8 +245,6 @@
 .gm4-herald{left:-9%;bottom:auto;top:17%;width:45%;height:38%}
 .gm4-notes{left:28%;top:33%;width:30%;height:9%}
 .gm4-map{left:10%;top:24%;width:96%;height:42%;transform:translate(8%,6%) scale(.96)}
-.gm4-cloud-preview{left:47%;top:33%;width:40%;height:14%}
-.gm4-travelers-preview{left:31%;top:41%;width:31%;height:13%}
 .gm4-cards{left:2%;right:2%;top:63%;bottom:11%;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));column-gap:4%;row-gap:1%}
 .gm4-footerline{bottom:8.2%}.gm4-footertext{bottom:4%;font-size:9px;letter-spacing:.19em}.gm4-controls{bottom:0.5%;right:3%}.gm4-controls button{font-size:8px;padding:7px}
 }
@@ -265,8 +257,6 @@
 <div class="gm4-piece gm4-map"><img src="assets/ginomai/v4/map.webp" alt="A glowing mapped journey through rivers, mountains, and four destinations beneath a guiding cloud" loading="eager" decoding="async"></div>
 <div class="gm4-piece gm4-herald" aria-hidden="true"><img src="assets/ginomai/v4/herald.webp" alt="" loading="eager"></div>
 <div class="gm4-piece gm4-notes" aria-hidden="true"><img src="assets/ginomai/v4/notes.webp" alt=""></div>
-<div class="gm4-piece gm4-cloud-preview" aria-hidden="true"><img src="assets/ginomai/v4/cloud.webp" alt=""></div>
-<div class="gm4-piece gm4-travelers-preview" aria-hidden="true"><img src="assets/ginomai/v4/travelers.webp" alt=""></div>
 <div class="gm4-cards" aria-label="The four walls">
 <button class="gm4-card" type="button" data-wall="0" aria-label="East — The Invitation"><img src="assets/ginomai/v4/east.webp" alt="East — The Invitation" loading="eager"></button>
 <button class="gm4-card" type="button" data-wall="1" aria-label="South — The Formation"><img src="assets/ginomai/v4/south.webp" alt="South — The Formation" loading="eager"></button>
@@ -286,9 +276,9 @@
  const wait=(fn,t)=>timers.push(setTimeout(fn,t));
  const clear=()=>{timers.forEach(clearTimeout);timers=[]};
  function reveal(i){cards.forEach((c,j)=>{c.classList.toggle('gm4-visible',j<=i);c.setAttribute('aria-pressed',String(j===i));});}
- function finish(){clear();started=true;stage.classList.add('gm4-herald-on','gm4-cloud-on','gm4-map-on');stage.dataset.notes='3';reveal(3)}
+ function finish(){clear();started=true;stage.classList.add('gm4-herald-on','gm4-map-on');stage.dataset.notes='3';reveal(3)}
  function play(){
-  clear();started=true;stage.classList.remove('gm4-herald-on','gm4-cloud-on','gm4-map-on');stage.dataset.notes='0';cards.forEach(c=>{c.classList.remove('gm4-visible');c.setAttribute('aria-pressed','false')});
+  clear();started=true;stage.classList.remove('gm4-herald-on','gm4-map-on');stage.dataset.notes='0';cards.forEach(c=>{c.classList.remove('gm4-visible');c.setAttribute('aria-pressed','false')});
   if(reduced){finish();return}
   // Each step is clock-driven. The background and final layout never switch images.
   void stage.offsetHeight;
@@ -297,8 +287,7 @@
   wait(()=>{stage.dataset.notes='2'},1880);
   wait(()=>{stage.dataset.notes='3'},2480);
   wait(()=>reveal(0),3150);wait(()=>reveal(1),4750);wait(()=>reveal(2),6350);wait(()=>reveal(3),7950);
-  wait(()=>stage.classList.add('gm4-cloud-on'),9100);
-  wait(()=>stage.classList.add('gm4-map-on'),11000);
+  wait(()=>stage.classList.add('gm4-map-on'),9900);
  }
  stage.querySelector('#gm4-replay').addEventListener('click',play);
  stage.querySelector('#gm4-skip').addEventListener('click',finish);
