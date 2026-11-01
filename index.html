@@ -368,6 +368,67 @@
 @media(prefers-reduced-motion:reduce){
  .gm-master-final{transition:none!important}
 }
+
+/* ORGANIC GINOMAI V4 — assembled layers only; NO final full-image replacement. */
+.gm-stage{background:radial-gradient(ellipse at 1% 48%,#b6824444 0%,transparent 26%),linear-gradient(180deg,#071827 0%,#091c2f 50%,#101e2d 88%,#061420 100%)!important}
+.gm-stage:before{background:radial-gradient(ellipse at 2% 53%,#c58e4357,transparent 30%)!important;opacity:1!important}
+.gm-horizon{height:9.8%!important;left:0!important;right:0!important;bottom:0!important;z-index:2!important;clip-path:none!important;opacity:1!important;background-image:url('assets/ginomai/gm-approved-master.webp')!important;background-size:100% auto!important;background-position:center bottom!important;background-repeat:no-repeat!important}
+.gm-mini-nav{z-index:32!important}
+.gm-banner{display:none!important}
+.gm-map-phase{z-index:8!important;opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important;pointer-events:none}
+.gm-map-title{z-index:17!important;position:absolute!important;left:4.8%!important;top:10%!important;width:27%!important;text-align:center!important;opacity:1!important;transform:none!important}
+.gm-map-title .gm-eyebrow{font-size:10px!important;letter-spacing:.35em!important}
+.gm-map-title h3{font-size:clamp(30px,4vw,68px)!important;white-space:nowrap;margin:6px 0 21px!important;color:#f8d8a0!important;line-height:1.05}
+.gm-map-title p{font:400 clamp(13px,1.15vw,19px)/1.48 Georgia,serif!important;color:#f4dab1!important}
+.gm-map-art{position:absolute!important;right:1.5%!important;top:-7.5%!important;width:72%!important;height:75%!important;max-height:none!important;aspect-ratio:auto!important;overflow:visible!important;transform:none!important;pointer-events:none}
+.gm-map-original{display:none!important}
+.gm-map-art>img.gm-map-clean{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;opacity:0!important;filter:drop-shadow(0 12px 17px #0006)!important;transform:translate3d(32px,-28px,0) scale(.94)!important;transform-origin:center center!important;transition:transform 2.4s cubic-bezier(.18,.8,.24,1),opacity 2.2s ease!important}
+.gm-stage.gm-map-enter .gm-map-art>img.gm-map-clean{opacity:1!important;transform:translate3d(0,0,0) scale(1)!important}
+.gm-stage.gm-finished .gm-map-art>img.gm-map-clean{opacity:1!important;transform:none!important}
+.gm-map-badge{z-index:26!important;left:48%!important;bottom:3.7%!important;letter-spacing:.35em!important;color:#d8ae74!important}
+.gm-herald-figure{z-index:18!important;left:-.5%!important;top:auto!important;bottom:8%!important;width:20.1%!important;height:56%!important;opacity:0;transform:translate3d(-42px,0,0);transition:opacity 1.6s ease,transform 2.2s ease!important}
+.gm-herald-figure img{display:block;width:100%!important;height:100%!important;object-fit:contain!important;object-position:left bottom!important;mask-image:none!important;-webkit-mask-image:none!important;filter:drop-shadow(0 9px 17px #0007)!important}
+.gm-stage.gm-started .gm-herald-figure,.gm-stage.gm-finished .gm-herald-figure{opacity:1!important;transform:none!important}
+.gm-music{z-index:20!important;left:20.1%!important;top:28.5%!important;width:18%!important;height:16%!important;opacity:1!important}
+.gm-note{font-size:clamp(28px,2.5vw,48px)!important;text-shadow:0 0 12px #ffcd69,0 0 23px #ffd181!important}
+.gm-wall-cloud{display:none!important}
+.gm-wall-grid{position:absolute!important;z-index:22!important;left:17.3%!important;right:13.8%!important;top:61%!important;bottom:10.5%!important;height:auto!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:1fr!important;gap:1.4%!important;align-items:stretch!important;opacity:1!important;transform:none!important;pointer-events:auto!important}
+.gm-stage.gm-map-on .gm-wall-grid{opacity:1!important;transform:none!important}
+.gm-wall{opacity:0!important;transform:translate3d(0,55px,0) scale(.94)!important;filter:none!important;transition:opacity 1.15s ease,transform 1.35s cubic-bezier(.15,.85,.2,1)!important}
+.gm-wall.gm-revealed,.gm-stage.gm-finished .gm-wall{opacity:1!important;transform:none!important;filter:none!important}
+.gm-wall img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center bottom!important;filter:drop-shadow(0 4px 7px #0006)!important;transform:none!important}
+.gm-map-cloud{width:26%!important;height:34%!important;left:var(--cloud-x,17%)!important;top:var(--cloud-y,43%)!important;z-index:11!important;opacity:0;transition:left 2.7s ease,top 2.7s ease,opacity .85s ease!important;transform:translate(-50%,-40%)!important}
+.gm-map-cloud img{width:100%!important;height:100%!important;object-fit:contain!important;animation:none!important;filter:drop-shadow(0 0 12px #ffc86870)!important}
+.gm-map-travelers{width:24%!important;height:22%!important;left:var(--walk-x,10%)!important;top:var(--walk-y,64%)!important;z-index:12!important;opacity:0;transition:left 2.7s ease,top 2.7s ease,opacity .85s ease!important;transform:translate(-18%,-35%)!important}
+.gm-map-travelers img{object-fit:contain!important;animation:none!important;filter:drop-shadow(0 5px 7px #0007)!important}
+.gm-stage.gm-moving .gm-map-cloud{opacity:.32!important}
+.gm-stage.gm-moving .gm-map-travelers{opacity:.50!important}
+.gm-stage.gm-finished .gm-map-cloud,.gm-stage.gm-finished .gm-map-travelers{opacity:0!important}
+.gm-route{opacity:0!important;display:none!important}
+.gm-master-final{display:none!important}
+.gm-controls{z-index:36!important}
+.gm-stage.gm-finished .gm-controls{opacity:.85!important}
+.gm-bottom-gold{height:2px!important;z-index:30!important;background:linear-gradient(90deg,transparent,#edbf79 15%,#ffe2a1 50%,#edbf79 85%,transparent)!important}
+@media(max-width:800px){
+ .gm-stage{overflow:hidden}
+ .gm-mini-nav{font-size:8px!important;letter-spacing:.05em!important;left:3%!important;right:3%!important}
+ .gm-map-title{top:9%!important;left:10%!important;width:80%!important}
+ .gm-map-title h3{font-size:clamp(27px,7vw,42px)!important}
+ .gm-map-title p{font-size:12px!important}
+ .gm-map-art{top:22%!important;right:-4%!important;width:100%!important;height:43%!important}
+ .gm-herald-figure{width:33%!important;height:33%!important;left:-3%!important;top:25%!important;bottom:auto!important}
+ .gm-music{left:21%!important;top:35%!important;width:40%!important}
+ .gm-wall-grid{left:4%!important;right:4%!important;top:61%!important;bottom:10%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:4px 10px!important}
+ .gm-map-badge{display:none!important}
+ .gm-horizon{height:8.7%!important;background-size:auto 100%!important}
+ .gm-controls{bottom:7px!important;right:6px!important}
+ .gm-controls button{font-size:8px!important;padding:7px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .gm-map-art>img.gm-map-clean,.gm-wall,.gm-herald-figure,.gm-map-cloud,.gm-map-travelers{transition:none!important}
+ .gm-note{animation:none!important}
+}
+
 </style>
 <div class="gm-track" id="ginomai-journey"><span id="ginomai" aria-hidden="true" style="position:absolute;top:0;left:0"></span>
 <section class="gm-stage" id="gm-theater" aria-label="Ginomai — the four walls and the cloud-led journey">
@@ -393,51 +454,55 @@
 <div class="gm-map-travelers" id="gm-map-travelers"><img src="assets/ginomai/gm-pilgrims-clean.webp" alt=""></div>
 </div><div class="gm-map-badge">THE WAY UNFOLDS ✦</div>
 </div>
-<div class="gm-master-final" aria-label="Approved complete Ginomai composition"><img src="assets/ginomai/gm-approved-master.webp" width="1672" height="941" loading="eager" decoding="async" draggable="false" alt="Ginomai final scene: a horn blower with three glowing notes, the full cloud-led pilgrimage map, and the four complete wall cards East, South, West and North"></div>
+
 <div class="gm-controls"><button id="gm-replay" type="button">↻ REPLAY</button><button id="gm-complete" type="button">SHOW FULL JOURNEY</button></div>
 <div class="gm-bottom-gold"></div>
 </section></div>
 <section class="gm-outro" id="ginomai-reflection" aria-label="Ginomai"><div class="gm-eyebrow">THE FOUR WALLS OF BECOMING</div><h2>GINOMAI</h2><p>When the cloud moves, the journey continues.</p><a href="#ginomai-journey" id="gm-again">WATCH THE JOURNEY AGAIN ↑</a></section>
 <script>
 (()=>{
-const stage=document.getElementById('gm-theater');if(!stage)return;
-const cards=[...stage.querySelectorAll('.gm-wall')];
-const route=stage.querySelector('#gm-route-line');
-const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-let timers=[],started=false;
-const later=(f,ms)=>timers.push(setTimeout(f,ms));
-const cancel=()=>{timers.forEach(clearTimeout);timers=[]};
-function reveal(n){cards.forEach((c,i)=>{c.classList.toggle('gm-revealed',i<=n);c.classList.toggle('gm-current',i===n);c.setAttribute('aria-pressed',String(i===n));});}
-const stops=[{cx:18,cy:46,px:6,py:62},{cx:43,cy:31,px:21,py:50},{cx:55,cy:20,px:37,py:41},{cx:60,cy:7,px:49,py:28}];
-function move(n){let k=stops[n];stage.style.setProperty('--cloud-x',k.cx+'%');stage.style.setProperty('--cloud-y',k.cy+'%');stage.style.setProperty('--walk-x',k.px+'%');stage.style.setProperty('--walk-y',k.py+'%');}
-function mapScene(){
- stage.classList.add('gm-rising');
- later(()=>{
-   stage.classList.add('gm-map-on');
-   stage.style.setProperty('--cloud-x','18%');stage.style.setProperty('--cloud-y','46%');
-   stage.style.setProperty('--walk-x','6%');stage.style.setProperty('--walk-y','62%');
-   route.style.strokeDashoffset='100';
-   later(()=>route.style.strokeDashoffset='0',450);
-   later(()=>move(1),750);later(()=>move(2),3400);later(()=>move(3),6250);later(()=>stage.classList.add('gm-finished'),9400);
- },1250);
-}
-function finish(){
- cancel();started=true;stage.classList.add('gm-started','gm-rising','gm-map-on','gm-finished');reveal(3);move(3);route.style.strokeDashoffset='0';
-}
-function play(){
- cancel();started=true;stage.classList.remove('gm-started','gm-rising','gm-map-on','gm-finished');cards.forEach(c=>{c.classList.remove('gm-revealed','gm-current');c.setAttribute('aria-pressed','false')});
- route.style.transition='none';route.style.strokeDashoffset='100';move(0);
- if(reduced){finish();return}
- void stage.offsetWidth;stage.classList.add('gm-started');void route.getBoundingClientRect();route.style.transition='stroke-dashoffset 8s linear';
- later(()=>reveal(0),3150);later(()=>reveal(1),5500);later(()=>reveal(2),7850);later(()=>reveal(3),10200);later(mapScene,12650);
-}
-stage.querySelector('#gm-replay').addEventListener('click',play);
-stage.querySelector('#gm-complete').addEventListener('click',finish);
-cards.forEach((b,i)=>b.addEventListener('click',()=>{if(!started)play();reveal(i)}));
-document.getElementById('gm-again').addEventListener('click',()=>{setTimeout(play,350)});
-const observer=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting&&!started)play()},{threshold:.28});observer.observe(stage);
-if(location.hash==='#ginomai-journey')setTimeout(()=>{if(!started)play()},550);
-window.addEventListener('pagehide',cancel);
+ const stage=document.getElementById('gm-theater');if(!stage)return;
+ const cards=[...stage.querySelectorAll('.gm-wall')];
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let timers=[],started=false;
+ const later=(f,t)=>timers.push(setTimeout(f,t));
+ const cancel=()=>{timers.forEach(clearTimeout);timers=[]};
+ const reveal=(i)=>cards.forEach((c,j)=>{const on=j<=i;c.classList.toggle('gm-revealed',on);c.classList.toggle('gm-current',j===i);c.setAttribute('aria-pressed',String(j===i))});
+ const move=(cx,cy,px,py)=>{stage.style.setProperty('--cloud-x',cx+'%');stage.style.setProperty('--cloud-y',cy+'%');stage.style.setProperty('--walk-x',px+'%');stage.style.setProperty('--walk-y',py+'%')};
+ function finish(){
+  cancel();started=true;stage.classList.add('gm-started','gm-map-enter','gm-map-on','gm-finished');
+  stage.classList.remove('gm-moving','gm-rising');
+  reveal(3);move(51,9,44,23);
+ }
+ function play(){
+  cancel();started=true;
+  stage.classList.remove('gm-started','gm-map-enter','gm-map-on','gm-finished','gm-moving','gm-rising');
+  reveal(-1);move(18,47,8,67);
+  if(reduced){finish();return;}
+  void stage.offsetWidth;stage.classList.add('gm-started');
+  // A single timed sequence; scrolling does not control individual frames.
+  later(()=>stage.classList.add('gm-map-enter','gm-map-on'),2700);
+  later(()=>reveal(0),3500);
+  later(()=>reveal(1),5400);
+  later(()=>reveal(2),7300);
+  later(()=>reveal(3),9200);
+  later(()=>{
+   stage.classList.add('gm-moving');
+   move(24,39,12,63);
+  },11000);
+  later(()=>move(35,31,20,54),13300);
+  later(()=>move(44,23,30,42),15700);
+  later(()=>move(51,9,44,23),18100);
+  later(()=>finish(),21000);
+ }
+ stage.querySelector('#gm-replay')?.addEventListener('click',play);
+ stage.querySelector('#gm-complete')?.addEventListener('click',finish);
+ cards.forEach((card,i)=>card.addEventListener('click',()=>{if(!started)play();reveal(i)}));
+ document.getElementById('gm-again')?.addEventListener('click',()=>setTimeout(play,350));
+ const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)&&!started)play()},{threshold:.25});
+ observer.observe(stage);
+ if(location.hash==='#ginomai'||location.hash==='#ginomai-journey')setTimeout(()=>{if(!started)play()},550);
+ window.addEventListener('pagehide',cancel);
 })();
 </script>
 </main>
