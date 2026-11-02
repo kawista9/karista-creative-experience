@@ -267,6 +267,33 @@
  .er5-book{inset:7% 9% 12%;gap:12px}.er5-book img{max-height:51svh}.er5-kicker{font-size:8px}.er5-controls{right:12px;bottom:18px}.er5-controls button{font-size:8px;padding:9px}.er5-caption{font-size:9px;letter-spacing:.13em;bottom:12%}
 }
 @media(prefers-reduced-motion:reduce){.er5-world img{animation:none!important;transition:none!important}.er5-curtain,.er5-book{transition:none}}
+
+/* The journal covers fan out only when their purchase area is in view. */
+#ginomai-reflection{padding:75px 20px 90px}
+.journal-shop{width:100%;max-width:1100px;margin:44px auto 30px;text-align:center}
+.journal-kicker{font:600 10px Arial,sans-serif;letter-spacing:.3em;color:#e8be7d}
+.journal-shop h3{font-size:clamp(27px,3.4vw,44px);font-weight:400;margin:14px 0 0;color:#f9e4bc}
+.journal-fan{position:relative;isolation:isolate;width:100%;height:clamp(280px,36vw,450px);margin:12px auto 0}
+#ginomai-reflection .journal-cover{position:absolute;top:30px;left:50%;width:21%;max-width:236px;display:block;margin:0;padding:0;border:0;background:none;text-decoration:none;opacity:0;transform:translate(-50%,65px) rotate(0deg) scale(.8);transform-origin:50% 90%;transition:transform 1.5s cubic-bezier(.16,1,.3,1),opacity 1s ease;transition-delay:calc(var(--order)*110ms);filter:drop-shadow(0 15px 18px #0009);z-index:calc(4 - var(--order))}
+.journal-cover img{display:block;width:100%;height:auto;clip-path:inset(.5% .5%);aspect-ratio:822/1043;object-fit:contain}
+#ginomai-reflection .journal-fan.is-open .journal-cover{opacity:1;transform:translate(calc(-50% + var(--spread)),0) rotate(var(--tilt)) scale(1)}
+#ginomai-reflection .journal-fan.is-open .journal-cover:hover,#ginomai-reflection .journal-fan.is-open .journal-cover:focus-visible{transform:translate(calc(-50% + var(--spread)),-18px) rotate(0deg) scale(1.07);z-index:10;transition-delay:0s;outline:2px solid #f6d89a;outline-offset:5px}
+#ginomai-reflection .journal-fan:not(.is-open) .journal-cover{transition:none}
+.journal-directions{font:600 11px Arial,sans-serif;letter-spacing:.24em;color:#ddbd88;margin:12px 0 24px}
+#ginomai-reflection .journal-amazon{display:inline-flex;gap:18px;align-items:center;justify-content:center;min-height:48px;padding:15px 24px;margin:0;border:1px solid #f5d89c;background:#f1cf8b;color:#172731;font:700 11px Arial,sans-serif;letter-spacing:.12em;text-decoration:none;box-shadow:0 5px 25px #e1a94b1a}
+#ginomai-reflection .journal-amazon:hover{background:#ffe5ad}
+#ginomai-reflection .journal-note{font:13px/1.5 Arial,sans-serif;font-style:normal;color:#cfbd9c;margin:14px 0 0}
+@media(max-width:700px){
+ #ginomai-reflection{padding:65px 16px 75px}
+ .journal-shop{margin-top:34px}.journal-shop h3{font-size:27px}
+ .journal-fan{height:clamp(235px,66vw,390px);margin-top:15px}
+ #ginomai-reflection .journal-cover{width:32%;top:26px;max-width:none}
+ #ginomai-reflection .journal-fan.is-open .journal-cover{transform:translate(calc(-50% + var(--mobile-spread)),0) rotate(var(--tilt)) scale(1)}
+ #ginomai-reflection .journal-fan.is-open .journal-cover:hover,#ginomai-reflection .journal-fan.is-open .journal-cover:focus-visible{transform:translate(calc(-50% + var(--mobile-spread)),-10px) rotate(0deg) scale(1.05)}
+ .journal-directions{font-size:9px;letter-spacing:.15em;margin-top:0}
+ #ginomai-reflection .journal-amazon{font-size:10px;padding:14px 18px;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){#ginomai-reflection .journal-cover{transition:none!important}}
 </style>
 </head>
 <body>
@@ -396,7 +423,14 @@
 <div class="gm4-footerline" aria-hidden="true"></div><div class="gm4-footertext">✦ THE WAY UNFOLDS ✦</div>
 <div class="gm4-controls"><button type="button" id="gm4-replay">↻ REPLAY</button><button type="button" id="gm4-skip">SHOW FULL JOURNEY</button></div>
 </section></div>
-<section class="gm4-ending" id="ginomai-reflection"><h2>GINOMAI</h2><p>When the cloud moves, the journey continues.</p><a href="#ginomai-journey" id="gm4-again">WATCH THE JOURNEY AGAIN ↑</a></section>
+<section class="gm4-ending" id="ginomai-reflection"><h2>GINOMAI</h2><p>When the cloud moves, the journey continues.</p><div class="journal-shop" aria-label="Shop the four Ginomai journals">
+ <div class="journal-kicker">THE FOUR WALL JOURNALS</div>
+ <h3>Walk the journey on paper.</h3>
+ <div class="journal-fan" id="journal-fan"><a class="journal-cover" href="https://www.amazon.com/s?k=karista+williams&amp;crid=1V1M43WRIR85R&amp;sprefix=karista+williams%2Caps%2C266&amp;ref=nb_sb_noss_1" target="_blank" rel="noopener noreferrer" aria-label="Shop Ginomai East Wall journal on Amazon (opens in a new tab)" style="--spread:-141%;--tilt:-11deg;--mobile-spread:-96%;--order:0"><img src="assets/journals/east.png" alt="Ginomai — The East Wall journal cover" loading="lazy" decoding="async" width="822" height="1043"></a><a class="journal-cover" href="https://www.amazon.com/s?k=karista+williams&amp;crid=1V1M43WRIR85R&amp;sprefix=karista+williams%2Caps%2C266&amp;ref=nb_sb_noss_1" target="_blank" rel="noopener noreferrer" aria-label="Shop Ginomai South Wall journal on Amazon (opens in a new tab)" style="--spread:-47%;--tilt:-4deg;--mobile-spread:-32%;--order:1"><img src="assets/journals/south.png" alt="Ginomai — The South Wall journal cover" loading="lazy" decoding="async" width="822" height="1043"></a><a class="journal-cover" href="https://www.amazon.com/s?k=karista+williams&amp;crid=1V1M43WRIR85R&amp;sprefix=karista+williams%2Caps%2C266&amp;ref=nb_sb_noss_1" target="_blank" rel="noopener noreferrer" aria-label="Shop Ginomai West Wall journal on Amazon (opens in a new tab)" style="--spread:47%;--tilt:4deg;--mobile-spread:32%;--order:2"><img src="assets/journals/west.png" alt="Ginomai — The West Wall journal cover" loading="lazy" decoding="async" width="822" height="1043"></a><a class="journal-cover" href="https://www.amazon.com/s?k=karista+williams&amp;crid=1V1M43WRIR85R&amp;sprefix=karista+williams%2Caps%2C266&amp;ref=nb_sb_noss_1" target="_blank" rel="noopener noreferrer" aria-label="Shop Ginomai North Wall journal on Amazon (opens in a new tab)" style="--spread:141%;--tilt:11deg;--mobile-spread:96%;--order:3"><img src="assets/journals/north.png" alt="Ginomai — The North Wall journal cover" loading="lazy" decoding="async" width="822" height="1043"></a></div>
+ <div class="journal-directions">EAST · SOUTH · WEST · NORTH</div>
+ <a class="journal-amazon" href="https://www.amazon.com/s?k=karista+williams&amp;crid=1V1M43WRIR85R&amp;sprefix=karista+williams%2Caps%2C266&amp;ref=nb_sb_noss_1" target="_blank" rel="noopener noreferrer">SHOP JOURNALS ON AMAZON <span aria-hidden="true">↗</span></a>
+ <p class="journal-note">Choose your journal and purchase on Amazon.</p>
+</div><a href="#ginomai-journey" id="gm4-again">WATCH THE JOURNEY AGAIN ↑</a></section>
 <script>
 (()=>{
  const stage=document.getElementById('gm-theater');if(!stage||!stage.classList.contains('gm4-stage'))return;
@@ -656,6 +690,24 @@
  const observer=new IntersectionObserver(schedule,{threshold:[0,.55,1]});
  scenes.forEach(scene=>observer.observe(scene.stage));
  schedule();
+})();
+</script>
+
+
+<script>
+(()=>{
+ const fan=document.getElementById('journal-fan');if(!fan)return;
+ let visible=false,request=0;
+ const ready=Promise.all([...fan.querySelectorAll('img')].map(i=>i.decode().catch(()=>{})));
+ const observer=new IntersectionObserver(entries=>{
+  for(const entry of entries){
+   if(entry.isIntersecting&&entry.intersectionRatio>=.35){
+    visible=true;const token=++request;
+    ready.then(()=>{if(visible&&token===request)fan.classList.add('is-open')});
+   }else if(!entry.isIntersecting){visible=false;++request;fan.classList.remove('is-open')}
+  }
+ },{threshold:[0,.35]});
+ observer.observe(fan);
 })();
 </script>
 
