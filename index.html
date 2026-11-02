@@ -428,6 +428,100 @@
  window.addEventListener('pagehide',clear);
 })();
 </script>
+
+<style>
+.mb-track{height:165svh;position:relative;background:#0d2028}
+.mb-stage{position:sticky;top:0;height:100svh;min-height:540px;overflow:hidden;isolation:isolate;background:#0d2028;color:#fff0ca}
+.mb-art{position:absolute;inset:0;transition:filter 4s ease}
+.mb-art img{position:absolute;display:block;pointer-events:none;user-select:none;object-fit:contain}
+.mb-base{inset:0;width:100%;height:100%;object-fit:cover!important;filter:brightness(.62) saturate(.85);transition:filter 7s ease}
+.mb-warmth{position:absolute;inset:0;background:radial-gradient(ellipse at 52% 27%,#ffdd8999,transparent 48%),linear-gradient(0deg,#a74d1610,#f2ae6966);mix-blend-mode:screen;opacity:0;transition:opacity 7s ease}
+.mb-sun{left:38%;top:1%;width:28%;height:32%;opacity:0;transform:translateY(40%);transition:opacity 5s ease,transform 7s cubic-bezier(.2,.8,.2,1)}
+.mb-roots{left:0;bottom:0;width:100%;height:54%;opacity:0;clip-path:inset(0 100% 0 0);transition:clip-path 6s ease,opacity 3s ease;mix-blend-mode:screen;filter:drop-shadow(0 0 8px #ffc65555)}
+.mb-water{left:0;top:24%;width:100%;height:43%;object-fit:fill!important;opacity:0;clip-path:inset(0 0 100% 0);transition:opacity 3s ease,clip-path 6s cubic-bezier(.2,.7,.25,1);filter:drop-shadow(0 0 9px #dbb45155)}
+.mb-river-wrap{position:absolute;inset:0;animation:mb-flow 8s ease-in-out infinite alternate}
+.mb-seed{width:5%;height:9%;opacity:0;transform:translateY(12px);transition:opacity 1.5s ease var(--delay),transform 2s ease var(--delay)}
+.mb-sprout{width:10%;height:27%;opacity:0;transform:translateY(15%) scale(.6);transform-origin:50% 55%;clip-path:inset(100% 0 0 0);transition:opacity 2s ease var(--delay),transform 3s ease var(--delay),clip-path 3s ease var(--delay)}
+.mb-wheat{width:17%;height:41%;opacity:0;transform:translateY(15%) scale(.7);transform-origin:50% 70%;clip-path:inset(100% 0 0 0);transition:opacity 3s ease var(--delay),transform 4s ease var(--delay),clip-path 4s ease var(--delay)}
+.mb-stage.mb-light .mb-base{filter:brightness(1.15) saturate(1.1) sepia(.1)}
+.mb-stage.mb-light .mb-warmth,.mb-stage.mb-light .mb-sun{opacity:1;transform:none}
+.mb-stage.mb-paths .mb-roots{opacity:1;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-paths .mb-seed{opacity:1;transform:none}
+.mb-stage.mb-river .mb-water{opacity:1;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-growth .mb-sprout,.mb-stage.mb-harvest .mb-wheat{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-harvest .mb-sprout{opacity:.65}
+.mb-shade{position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(180deg,#03141d99,transparent 32%,transparent 70%,#04151d88);box-shadow:inset 0 0 65px #06121b66}
+.mb-heading{position:absolute;z-index:7;top:6%;left:6%;right:6%;text-align:center;text-shadow:0 2px 15px #061a20}
+.mb-eyebrow{font:600 10px Arial,sans-serif;letter-spacing:.35em;color:#fbd998}
+.mb-heading h2{font-size:clamp(43px,6vw,88px);letter-spacing:.14em;font-weight:400;margin:14px 0 6px}
+.mb-heading p{font-style:italic;font-size:clamp(15px,2vw,23px);margin:0}
+.mb-caption{position:absolute;z-index:7;bottom:10%;left:8%;right:8%;text-align:center;font:600 11px/1.5 Arial,sans-serif;letter-spacing:.2em;color:#fff1ce;text-shadow:0 1px 10px #000}
+.mb-product{position:absolute;inset:0;z-index:8;opacity:0;visibility:hidden;transition:opacity 2.5s ease}
+.mb-product-cover{clip-path:inset(.7% 1%);position:absolute;right:14%;bottom:14%;height:58%;max-width:34%;object-fit:contain;transform:translateY(45px) rotate(3deg);transition:transform 3s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 18px 25px #30150688)}
+.mb-product-copy{position:absolute;left:7%;top:38%;width:37%;padding:25px;background:#142b2bd9;border:1px solid #e5bc7577;box-shadow:0 12px 40px #10202022;text-align:center}
+.mb-product-copy h3{font-size:clamp(27px,3vw,43px);line-height:1.15;font-weight:400;margin:0 0 16px}
+.mb-product-copy p{font-size:clamp(15px,1.5vw,21px);line-height:1.5;margin:0 0 22px}
+.mb-product-copy a{display:inline-block;text-decoration:none;padding:14px 20px;background:#efd090;color:#163039;font:700 11px Arial,sans-serif;letter-spacing:.1em}
+.mb-stage.mb-finished .mb-product{opacity:1;visibility:visible}
+.mb-stage.mb-finished .mb-product-cover{transform:none}
+.mb-stage.mb-finished .mb-caption{opacity:0}
+.mb-controls{position:absolute;z-index:15;right:20px;bottom:20px;display:flex;gap:8px}
+.mb-controls button{font:600 10px Arial,sans-serif;letter-spacing:.09em;color:#f9deb0;background:#0b282bd9;border:1px solid #d3b075;padding:10px 13px;border-radius:3px;cursor:pointer}
+.mb-stage.mb-finished #mb-skip{display:none}
+.mb-ending{min-height:65svh;padding:100px 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at top,#975e242b,transparent 60%),#14282b;color:#f3d9ae}
+.mb-ending h2{font-size:clamp(40px,6vw,80px);font-weight:400;margin:15px 0}
+.mb-ending p{font-size:clamp(18px,2.5vw,25px);line-height:1.5;max-width:630px}
+.mb-ending a{color:#f3d9ae;font:600 11px Arial,sans-serif;letter-spacing:.15em;text-decoration:none;border-bottom:1px solid #bba06e;padding-bottom:8px;margin-top:18px}
+@keyframes mb-flow{to{transform:translateY(-.35%)}}
+@media(max-width:700px){
+ .mb-stage{min-height:0}.mb-track{height:175svh}.mb-heading{top:7%;left:3%;right:3%}.mb-heading h2{font-size:clamp(34px,10vw,62px)}.mb-eyebrow{font-size:8px}.mb-heading p{font-size:14px}
+ .mb-base{object-position:54% center}.mb-sun{left:27%;top:10%;width:46%;height:25%}.mb-roots{width:160%;left:-30%;height:48%}
+ .mb-sprout{width:17%;height:23%}.mb-wheat{width:26%;height:32%}.mb-seed{width:8%}
+ .mb-product-cover{right:27%;bottom:34%;height:38%;max-width:48%}.mb-product-copy{left:8%;top:auto;bottom:10%;width:84%;padding:17px}.mb-product-copy h3{font-size:24px;margin-bottom:8px}.mb-product-copy p{font-size:13px;margin-bottom:12px}.mb-product-copy a{padding:12px 17px;font-size:10px}
+ .mb-caption{font-size:9px;bottom:12%;letter-spacing:.12em}.mb-controls{right:12px;bottom:16px}.mb-controls button{font-size:8px;padding:9px}
+}
+@media(prefers-reduced-motion:reduce){.mb-art *,.mb-product,.mb-product-cover{animation:none!important;transition:none!important}}
+</style>
+<div class="mb-track" id="mirabeau"><section class="mb-stage" id="mb-stage" aria-label="Mirabeau: The Landscape Awakens">
+ <div class="mb-art" aria-hidden="true">
+ <img class="mb-base" src="assets/mirabeau/v1/landscape.png" alt="">
+ <div class="mb-warmth"></div><img class="mb-sun" src="assets/mirabeau/v1/sun.png" alt="">
+ <img class="mb-roots" src="assets/mirabeau/v1/roots.png" alt="">
+ <div class="mb-river-wrap"><img class="mb-water" src="assets/mirabeau/v1/water.png" alt=""></div>
+ <img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:12%;top:62%;--delay:0ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:29%;top:70%;--delay:140ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:46%;top:59%;--delay:280ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:63%;top:75%;--delay:420ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:78%;top:66%;--delay:560ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:5%;top:34%;--delay:0ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:22%;top:37%;--delay:280ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:40%;top:40%;--delay:560ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:63%;top:46%;--delay:840ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:83%;top:50%;--delay:1120ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:0%;top:19%;--delay:0ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:13%;top:24%;--delay:260ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:34%;top:29%;--delay:520ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:68%;top:37%;--delay:780ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:84%;top:39%;--delay:1040ms">
+ </div>
+ <div class="mb-shade" aria-hidden="true"></div>
+ <div class="mb-heading"><div class="mb-eyebrow">THE LANDSCAPE AWAKENS</div><h2>MIRABEAU</h2><p>The Mapping of God’s Kingdom Within Us</p></div>
+ <div class="mb-product"><img class="mb-product-cover" src="assets/mirabeau/v1/cover.png" alt="Mirabeau: The Mapping of God’s Kingdom Within Us by Karista Williams"><div class="mb-product-copy"><h3>What is God<br>changing in me?</h3><p>A journey through the patterns, pathways, and possibilities within us.</p><a href="#mirabeau-discover">DISCOVER MIRABEAU ↓</a></div></div>
+ <div class="mb-caption" aria-live="polite">Be still. There is more beneath the surface.</div>
+ <div class="mb-controls"><button type="button" id="mb-replay">↻ REPLAY SCENE</button><button type="button" id="mb-skip">SHOW THE FULL LANDSCAPE →</button></div>
+</section></div>
+<section class="mb-ending" id="mirabeau-discover"><div class="kicker">Mirabeau · Karista Williams</div><h2>A map to walk.</h2><p>Stop. Gaze. Repent. Reflect. Return.<br>Allow truth to change the way you think.</p><a href="#mirabeau" id="mb-again">WATCH THE LANDSCAPE AWAKEN ↑</a></section>
+<script>
+(()=>{
+ const stage=document.getElementById('mb-stage'),caption=stage.querySelector('.mb-caption');
+ const states=['mb-paths','mb-light','mb-river','mb-growth','mb-harvest','mb-finished'];
+ let started=false,timers=[],request=0;
+ const ready=Promise.all([...stage.querySelectorAll('img')].map(i=>i.decode().catch(()=>{})));
+ const clear=()=>{timers.forEach(clearTimeout);timers=[]};
+ const later=(f,t)=>timers.push(setTimeout(f,t));
+ function finish(){++request;clear();started=true;stage.classList.add(...states)}
+ async function play(){const token=++request;clear();started=true;stage.classList.remove(...states);caption.textContent='Be still. There is more beneath the surface.';await ready;if(token!==request)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches){finish();return}
+ later(()=>{stage.classList.add('mb-paths');caption.textContent='Light reveals the pathways within.'},1800);
+ later(()=>stage.classList.add('mb-light'),4000);
+ later(()=>{stage.classList.add('mb-river');caption.textContent='What was blocked begins to flow.'},8000);
+ later(()=>{stage.classList.add('mb-growth');caption.textContent='Roots deepen. New life emerges.'},12500);
+ later(()=>{stage.classList.add('mb-harvest');caption.textContent='Transformation takes root.'},17500);
+ later(()=>stage.classList.add('mb-finished'),24000);
+ }
+ document.getElementById('mb-replay').addEventListener('click',()=>{document.getElementById('mirabeau').scrollIntoView({behavior:'smooth',block:'start'});play()});
+ document.getElementById('mb-skip').addEventListener('click',finish);
+ document.getElementById('mb-again').addEventListener('click',()=>setTimeout(play,400));
+ new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)&&!started)play()},{threshold:.4}).observe(stage);
+ window.addEventListener('pagehide',()=>{++request;clear()});
+})();
+</script>
+
 </main>
   <footer class="footer">KARISTA WILLIAMS · A HOME FOR STORIES, LEARNING & BECOMING</footer>
   <script>
