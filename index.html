@@ -834,11 +834,13 @@ body{padding-top:var(--lp-bar-space)}
 .lp-dock{left:0;right:0;top:0;bottom:auto;width:100%;height:var(--lp-bar-space);padding:calc(2px + env(safe-area-inset-top,0px)) 4vw 2px;justify-content:center;border:0;border-bottom:1px solid #ddc18a55;border-radius:0;background:#071625;box-shadow:0 3px 16px #0004;backdrop-filter:none}
 #theater.er5-stage,.gm4-stage,.mb-stage,.mw2-stage{top:var(--lp-bar-space);height:calc(100svh - var(--lp-bar-space))}
 @media(max-width:800px){:root{--lp-bar-height:50px}.lp-dock{left:0;right:0;top:0;bottom:auto;padding-left:12px;padding-right:12px}}
+.lp-back-top{display:inline-flex;align-items:center;gap:7px;color:#f8e8cd;font:800 10px/1.4 Arial,sans-serif;letter-spacing:.06em;text-decoration:none;padding:11px 14px;margin-left:10px;border-left:1px solid #c4a66a55;white-space:nowrap;transition:color .2s,background .2s}.lp-back-top:hover{color:#fff0bf;background:#ffffff0a}.lp-back-top:focus-visible{outline:2px solid #9cfff0;outline-offset:2px}@media(max-width:800px){.lp-back-top{font-size:9px;padding:10px 8px;margin-left:2px;letter-spacing:0}.lp-dock{gap:2px}}
 @media(prefers-reduced-motion:reduce){.lp-dock *, .lp-dialog *{animation:none!important;transition:none!important}}
 </style>
 <div class="lp-dock" id="life-dock" data-playing="false" aria-label="Life Playlist music controls">
 <button type="button" class="lp-open-button" id="life-open" aria-haspopup="dialog" aria-controls="life-playlist"><span class="lp-note" aria-hidden="true">♫</span><span class="lp-dock-copy"><strong>LIFE PLAYLIST</strong><small id="life-dock-track">Begin with music</small></span></button>
 <button type="button" class="lp-power" id="life-power" role="switch" aria-checked="false" aria-label="Background music">OFF</button>
+<a class="lp-back-top" href="#top" aria-label="Back to top">BACK TO TOP <span aria-hidden="true">↑</span></a>
 </div>
 <dialog class="lp-dialog" id="life-playlist" aria-labelledby="lp-title" aria-describedby="lp-description">
 <header class="lp-header"><span class="lp-header-label">THE TWELVE TRIBES · A LIFE PLAYLIST</span><div class="lp-header-actions"><button type="button" id="lp-header-minimize" aria-label="Minimize playlist and keep music playing">— MINIMIZE</button><button type="button" id="lp-stop-close" aria-label="Stop music and close playlist" title="Stop music and close">×</button></div></header>
