@@ -486,11 +486,11 @@
 .mb-orchard-layer{position:absolute;inset:0;pointer-events:none}
 .mb-sapling,.mb-tree,.mb-vine{opacity:0;transform-origin:50% 100%;will-change:transform,opacity;object-position:center bottom}
 .mb-sapling{width:15%;height:27%;transform:translateY(8%) scale(.55);clip-path:inset(100% 0 0 0);transition:opacity 3s ease,transform 4s cubic-bezier(.2,.75,.25,1),clip-path 4s ease}
-.mb-sapling-fig{left:9%;bottom:48%}.mb-sapling-pomegranate{left:43%;bottom:51%}.mb-sapling-citrus{right:9%;bottom:44%}
+.mb-sapling-fig{left:9%;bottom:48%}.mb-sapling-pomegranate{left:43%;bottom:51%}.mb-sapling-citrus{left:26%;right:auto;bottom:50%}
 .mb-tree{transform:translateY(6%) scale(.52);clip-path:inset(100% 0 0 0);transition:opacity 4s ease var(--tree-delay),transform 6s cubic-bezier(.15,.8,.2,1) var(--tree-delay),clip-path 5s ease var(--tree-delay);filter:drop-shadow(0 12px 10px #37251633)}
 .mb-fig{left:0;bottom:47%;width:34%;height:45%;--tree-delay:0s}
 .mb-pomegranate{left:35%;bottom:51%;width:28%;height:37%;--tree-delay:.8s}
-.mb-citrus{right:-1%;bottom:43%;width:34%;height:44%;--tree-delay:1.6s}
+.mb-citrus{left:19%;right:auto;bottom:50%;width:29%;height:38%;--tree-delay:1.6s}
 .mb-vine{width:45%;height:30%;clip-path:inset(0 100% 0 0);transform:scale(.8);transition:clip-path 5s ease,opacity 4s ease,transform 5s ease;filter:drop-shadow(0 5px 6px #33281b44)}
 .mb-vine-left{left:-4%;bottom:25%;--vine-delay:0s}
 .mb-vine-right{right:-4%;bottom:20%;--vine-delay:1s;transition-delay:1s}
@@ -503,8 +503,8 @@
 @media(max-width:700px){
  .mb-fig{left:-15%;width:63%;height:40%;bottom:48%}
  .mb-pomegranate{left:28%;width:43%;height:31%;bottom:52%}
- .mb-citrus{right:-17%;width:63%;height:38%;bottom:44%}
- .mb-sapling{width:26%;height:26%}.mb-sapling-fig{left:2%}.mb-sapling-pomegranate{left:39%}.mb-sapling-citrus{right:2%}
+ .mb-citrus{left:9%;right:auto;width:48%;height:34%;bottom:50%}
+ .mb-sapling{width:26%;height:26%}.mb-sapling-fig{left:2%}.mb-sapling-pomegranate{left:39%}.mb-sapling-citrus{left:20%;right:auto}
  .mb-vine{width:67%;height:27%}.mb-vine-left{left:-17%;bottom:25%}.mb-vine-right{right:-17%;bottom:20%}
  .mb-stage.mb-growth .mb-sprout{width:20%;height:27%}
 }
