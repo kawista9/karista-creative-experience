@@ -620,6 +620,11 @@
 /* Math Word Wall: layered PNG neural cinema. */
 .mw2-track{height:225svh;background:#02050e;position:relative;--ice:#76fff2;--lavender:#b7a2ff}
 .mw2-stage{position:sticky;top:0;height:100svh;min-height:680px;overflow:hidden;isolation:isolate;color:#fff;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(ellipse at 38% 46%,#143250 0%,#091529 35%,#02050e 74%)}
+/* A continuous bidirectional scan across the full cinematic viewport. */
+.mw2-scanner{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden}
+.mw2-scan-bar{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,#9fffee88 9%,#e4fffc 50%,#aeabff99 91%,transparent 100%);box-shadow:0 0 9px 2px #a1fff08c,0 0 32px 7px #9d9bff3d;animation:mw2ScanSweep 6s ease-in-out infinite alternate;will-change:top}
+.mw2-scan-bar::before{content:'';position:absolute;left:0;right:0;top:-32px;height:66px;background:linear-gradient(transparent,#99fff00a 28%,#b4fff027 50%,#b4adff0a 72%,transparent)}
+@keyframes mw2ScanSweep{from{top:0}to{top:calc(100% - 2px)}}
 .mw2-stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:5;box-shadow:inset 0 0 100px #0007}
 .mw2-top{position:absolute;z-index:10;top:30px;left:4%;right:4%;display:flex;justify-content:space-between;align-items:center;gap:20px}.mw2-brand{font-size:14px;font-weight:800;letter-spacing:.16em;color:#d0f8ff;text-decoration:none}.mw2-brand span{color:#7cfff0;margin-right:8px;text-shadow:0 0 18px #67fff7}.mw2-tools{display:flex;gap:9px}.mw2-tools button{font:800 12px Arial,sans-serif;letter-spacing:.06em;border:1px solid #728fac99;border-radius:4px;padding:11px 14px;background:#071528cc;color:white;cursor:pointer;transition:background .2s}.mw2-tools button:hover{background:#24425e}.mw2-stage a:focus-visible,.mw2-tools button:focus-visible{outline:3px solid #fff;outline-offset:5px}
 .mw2-art{position:absolute;left:50%;top:47%;width:min(1180px,96vw);aspect-ratio:1.5;transform:translate(-50%,-50%);transition:left 2.2s cubic-bezier(.2,.7,.2,1),width 2.2s,top 2.2s;z-index:2;pointer-events:none}
@@ -654,6 +659,7 @@
 </style>
 <section class="mw2-track" id="wordwall" aria-label="Math Digital Word Wall cinematic introduction">
 <div class="mw2-stage" id="mw-stage" data-scene-active="false">
+<div class="mw2-scanner" aria-hidden="true"><div class="mw2-scan-bar"></div></div>
 <div class="mw2-top"><a class="mw2-brand" href="https://kawista9.github.io/8math-wordwall-draft1/" target="_blank" rel="noopener"><span aria-hidden="true">✦</span> MYELINATED MELANIN</a><div class="mw2-tools"><button type="button" id="mw-replay">↻ REPLAY</button><button type="button" id="mw-skip">SHOW FULL SCENE</button></div></div>
 <div class="mw2-art" role="img" aria-label="A human brain with organic gray matter and branching neurons on one side and illuminated computer circuitry on the other, surrounded by dimensional math concepts">
 <img class="mw2-neurons" src="assets/wordwall/neural-branches-violet-v3.png" alt="" width="1672" height="941" loading="lazy" decoding="async">
