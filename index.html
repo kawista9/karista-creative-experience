@@ -295,6 +295,22 @@
 }
 @media(prefers-reduced-motion:reduce){#ginomai-reflection .journal-cover{transition:none!important}}
 </style>
+<style>
+/* Four illustrated entrances in the welcome section. */
+.arrival .arrival-art{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:clamp(18px,3vw,50px);width:min(1120px,92vw);height:clamp(245px,33svh,370px);pointer-events:auto;opacity:1;z-index:2}
+.product-symbol{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;height:100%;text-decoration:none;color:#f9e8cb;isolation:isolate;-webkit-tap-highlight-color:transparent}
+.product-symbol::before{content:'';position:absolute;z-index:-1;bottom:60px;left:19%;right:19%;height:15px;border-radius:50%;background:#000b;filter:blur(9px);transform:scaleX(.95);transition:transform .35s,opacity .35s;opacity:.8}
+.arrival .product-symbol img{display:block;width:100%;height:clamp(155px,19vw,230px);object-fit:contain;filter:drop-shadow(0 8px 7px #0007);transform:translateY(0);transition:transform .4s cubic-bezier(.2,.8,.2,1),filter .4s}
+.product-symbol-label{display:flex;align-items:center;justify-content:center;min-height:45px;margin-top:13px;text-align:center;font:800 clamp(11px,1.1vw,15px)/1.5 Arial,Helvetica,sans-serif;letter-spacing:.12em;text-shadow:0 2px 8px #0008;transition:color .3s}
+.product-symbol:hover img,.product-symbol:focus-visible img{transform:translateY(-13px) scale(1.06);filter:brightness(1.14) drop-shadow(0 12px 10px #0007) drop-shadow(0 0 18px #e7c27f66)}
+.product-symbol:hover::before,.product-symbol:focus-visible::before{transform:scaleX(1.12);opacity:.5}
+.product-symbol:hover .product-symbol-label,.product-symbol:focus-visible .product-symbol-label{color:#ffe0a0}
+.product-symbol[data-product=math]:hover img,.product-symbol[data-product=math]:focus-visible img{filter:brightness(1.15) drop-shadow(0 12px 10px #0007) drop-shadow(0 0 18px #7efff577)}
+.product-symbol[data-product=math]:hover .product-symbol-label,.product-symbol[data-product=math]:focus-visible .product-symbol-label{color:#a5fff5}
+.product-symbol:focus-visible{outline:2px solid #ead39e;outline-offset:7px;border-radius:8px}
+@media(max-width:700px){.arrival .arrival-art{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 22px;width:min(470px,94%);height:auto;margin-top:5px;margin-bottom:14px}.arrival .product-symbol img{height:clamp(120px,34vw,170px)}.product-symbol-label{font-size:10px;letter-spacing:.1em;min-height:33px;margin-top:7px}.product-symbol::before{bottom:43px;height:10px}.arrival{padding-bottom:80px}.product-symbol:hover img,.product-symbol:focus-visible img{transform:translateY(-8px) scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.product-symbol,.product-symbol *,.product-symbol::before{transition:none!important}}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -303,13 +319,19 @@
   </header>
   <main id="top">
     <section class="arrival" aria-label="Welcome">
-      <div class="arrival-art" aria-hidden="true"></div>
+      
       <div class="arrival-content">
         <div class="kicker">An invitation to keep becoming</div>
         <h1>What if He says <span>come?</span></h1>
         <p>Some invitations change the direction of a life. This one begins with a step of faith.</p>
         <a class="enter-link" href="#experience">ENTER THE ERCHOMAI STORY <span aria-hidden="true">↓</span></a>
       </div>
+      <nav class="arrival-art" aria-label="Explore the four experiences">
+<a class="product-symbol" data-product="erchomai" href="#experience"><img src="assets/product-symbols/erchomai.png" alt="Stepping stones across ocean waves toward sunrise" width="1024" height="1024" decoding="async"><span class="product-symbol-label">ERCHOMAI</span></a>
+<a class="product-symbol" data-product="ginomai" href="#ginomai-journey"><img src="assets/product-symbols/ginomai.png" alt="Four golden gates connected by a path" width="1024" height="1024" decoding="async"><span class="product-symbol-label">GINOMAI</span></a>
+<a class="product-symbol" data-product="mirabeau" href="#mirabeau"><img src="assets/product-symbols/mirabeau.png" alt="Flourishing green tree with visible golden roots" width="1024" height="1024" decoding="async"><span class="product-symbol-label">MIRABEAU</span></a>
+<a class="product-symbol" data-product="math" href="#wordwall"><img src="assets/product-symbols/math.png" alt="Organic and computer brain with math symbols" width="1024" height="1024" decoding="async"><span class="product-symbol-label">8TH GRADE MATH<br>LEARNING WALL</span></a>
+</nav>
       <div class="scroll-hint" aria-hidden="true"><span>SCROLL TO THE STAGE</span><span>⌄</span></div>
     </section>
     <div class="er5-track" id="experience">
