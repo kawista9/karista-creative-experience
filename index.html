@@ -481,6 +481,33 @@
  .mb-caption{font-size:9px;bottom:12%;letter-spacing:.12em}.mb-controls{right:12px;bottom:16px}.mb-controls button{font-size:8px;padding:9px}
 }
 @media(prefers-reduced-motion:reduce){.mb-art *,.mb-product,.mb-product-cover{animation:none!important;transition:none!important}}
+
+/* Mirabeau: seedlings become a green, fruit-bearing orchard. */
+.mb-orchard-layer{position:absolute;inset:0;pointer-events:none}
+.mb-sapling,.mb-tree,.mb-vine{opacity:0;transform-origin:50% 100%;will-change:transform,opacity;object-position:center bottom}
+.mb-sapling{width:15%;height:27%;transform:translateY(8%) scale(.55);clip-path:inset(100% 0 0 0);transition:opacity 3s ease,transform 4s cubic-bezier(.2,.75,.25,1),clip-path 4s ease}
+.mb-sapling-fig{left:9%;bottom:48%}.mb-sapling-pomegranate{left:43%;bottom:51%}.mb-sapling-citrus{right:9%;bottom:44%}
+.mb-tree{transform:translateY(6%) scale(.52);clip-path:inset(100% 0 0 0);transition:opacity 4s ease var(--tree-delay),transform 6s cubic-bezier(.15,.8,.2,1) var(--tree-delay),clip-path 5s ease var(--tree-delay);filter:drop-shadow(0 12px 10px #37251633)}
+.mb-fig{left:0;bottom:47%;width:34%;height:45%;--tree-delay:0s}
+.mb-pomegranate{left:35%;bottom:51%;width:28%;height:37%;--tree-delay:.8s}
+.mb-citrus{right:-1%;bottom:43%;width:34%;height:44%;--tree-delay:1.6s}
+.mb-vine{width:45%;height:30%;clip-path:inset(0 100% 0 0);transform:scale(.8);transition:clip-path 5s ease,opacity 4s ease,transform 5s ease;filter:drop-shadow(0 5px 6px #33281b44)}
+.mb-vine-left{left:-4%;bottom:25%;--vine-delay:0s}
+.mb-vine-right{right:-4%;bottom:20%;--vine-delay:1s;transition-delay:1s}
+.mb-stage.mb-saplings .mb-sapling{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-orchard .mb-tree{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-orchard .mb-sapling{opacity:0;transition-delay:2s}
+.mb-stage.mb-vines .mb-vine{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-growth .mb-sprout{width:13%;height:31%}
+.mb-stage.mb-harvest .mb-sprout{opacity:1}
+@media(max-width:700px){
+ .mb-fig{left:-15%;width:63%;height:40%;bottom:48%}
+ .mb-pomegranate{left:28%;width:43%;height:31%;bottom:52%}
+ .mb-citrus{right:-17%;width:63%;height:38%;bottom:44%}
+ .mb-sapling{width:26%;height:26%}.mb-sapling-fig{left:2%}.mb-sapling-pomegranate{left:39%}.mb-sapling-citrus{right:2%}
+ .mb-vine{width:67%;height:27%}.mb-vine-left{left:-17%;bottom:25%}.mb-vine-right{right:-17%;bottom:20%}
+ .mb-stage.mb-growth .mb-sprout{width:20%;height:27%}
+}
 </style>
 <div class="mb-track" id="mirabeau"><section class="mb-stage" id="mb-stage" aria-label="Mirabeau: The Landscape Awakens">
  <div class="mb-art" aria-hidden="true">
@@ -489,6 +516,17 @@
  <img class="mb-roots" src="assets/mirabeau/v1/roots.png" alt="">
  <div class="mb-river-wrap"><img class="mb-water" src="assets/mirabeau/v1/water.png" alt=""></div>
  <img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:12%;top:62%;--delay:0ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:29%;top:70%;--delay:140ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:46%;top:59%;--delay:280ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:63%;top:75%;--delay:420ms"><img class="mb-seed" src="assets/mirabeau/v1/seed.png" alt="" style="left:78%;top:66%;--delay:560ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:5%;top:34%;--delay:0ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:22%;top:37%;--delay:280ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:40%;top:40%;--delay:560ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:63%;top:46%;--delay:840ms"><img class="mb-sprout" src="assets/mirabeau/v1/sprout.png" alt="" style="left:83%;top:50%;--delay:1120ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:0%;top:19%;--delay:0ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:13%;top:24%;--delay:260ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:34%;top:29%;--delay:520ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:68%;top:37%;--delay:780ms"><img class="mb-wheat" src="assets/mirabeau/v1/wheat.png" alt="" style="left:84%;top:39%;--delay:1040ms">
+
+ <div class="mb-orchard-layer">
+ <img class="mb-sapling mb-sapling-fig" src="assets/mirabeau/v2/sapling.png" alt="">
+ <img class="mb-sapling mb-sapling-pomegranate" src="assets/mirabeau/v2/sapling.png" alt="">
+ <img class="mb-sapling mb-sapling-citrus" src="assets/mirabeau/v2/sapling.png" alt="">
+ <img class="mb-tree mb-fig" src="assets/mirabeau/v2/fig-tree.png" alt="">
+ <img class="mb-tree mb-pomegranate" src="assets/mirabeau/v2/pomegranate-tree.png" alt="">
+ <img class="mb-tree mb-citrus" src="assets/mirabeau/v2/citrus-tree.png" alt="">
+ <img class="mb-vine mb-vine-left" src="assets/mirabeau/v2/grapevine.png" alt="">
+ <img class="mb-vine mb-vine-right" src="assets/mirabeau/v2/grapevine.png" alt="">
+ </div>
  </div>
  <div class="mb-shade" aria-hidden="true"></div>
  <div class="mb-heading"><div class="mb-eyebrow">THE LANDSCAPE AWAKENS</div><h2>MIRABEAU</h2><p>The Mapping of God’s Kingdom Within Us</p></div>
@@ -500,7 +538,7 @@
 <script>
 (()=>{
  const stage=document.getElementById('mb-stage'),caption=stage.querySelector('.mb-caption');
- const states=['mb-paths','mb-light','mb-river','mb-growth','mb-harvest','mb-finished'];
+ const states=['mb-paths','mb-light','mb-river','mb-growth','mb-harvest','mb-saplings','mb-orchard','mb-vines','mb-finished'];
  let started=false,timers=[],request=0;
  const ready=Promise.all([...stage.querySelectorAll('img')].map(i=>i.decode().catch(()=>{})));
  const clear=()=>{timers.forEach(clearTimeout);timers=[]};
@@ -512,7 +550,10 @@
  later(()=>{stage.classList.add('mb-river');caption.textContent='What was blocked begins to flow.'},8000);
  later(()=>{stage.classList.add('mb-growth');caption.textContent='Roots deepen. New life emerges.'},12500);
  later(()=>{stage.classList.add('mb-harvest');caption.textContent='Transformation takes root.'},17500);
- later(()=>stage.classList.add('mb-finished'),24000);
+ later(()=>{stage.classList.add('mb-saplings');caption.textContent='Small beginnings become rooted strength.'},16500);
+ later(()=>{stage.classList.add('mb-orchard');caption.textContent='Grow deeply. Bear fruit.'},21000);
+ later(()=>{stage.classList.add('mb-vines');caption.textContent='A landscape of living fruitfulness.'},27000);
+ later(()=>stage.classList.add('mb-finished'),35000);
  }
  document.getElementById('mb-replay').addEventListener('click',()=>{document.getElementById('mirabeau').scrollIntoView({behavior:'smooth',block:'start'});play()});
  document.getElementById('mb-skip').addEventListener('click',finish);
