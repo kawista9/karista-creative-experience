@@ -508,10 +508,18 @@
  .mb-vine{width:67%;height:27%}.mb-vine-left{left:-17%;bottom:25%}.mb-vine-right{right:-17%;bottom:20%}
  .mb-stage.mb-growth .mb-sprout{width:20%;height:27%}
 }
+
+/* Green groundcover spreads across every exposed hill and riverbank. */
+.mb-green-base{inset:0;width:100%;height:100%;object-fit:cover!important;opacity:0;clip-path:inset(0 0 100% 0);transition:clip-path 9s cubic-bezier(.2,.6,.2,1),opacity 3s ease}
+.mb-stage.mb-ground-on .mb-green-base{opacity:1;clip-path:inset(0 0 0 0)}
+.mb-stage.mb-ground-on .mb-warmth{opacity:.2}
+.mb-stage.mb-ground-on .mb-water{opacity:0;transition:opacity 6s ease}
+@media(max-width:700px){.mb-green-base{object-position:54% center}}
 </style>
 <div class="mb-track" id="mirabeau"><section class="mb-stage" id="mb-stage" aria-label="Mirabeau: The Landscape Awakens">
  <div class="mb-art" aria-hidden="true">
  <img class="mb-base" src="assets/mirabeau/v1/landscape.png" alt="">
+ <img class="mb-green-base" src="assets/mirabeau/v3/green-landscape.png" alt="">
  <div class="mb-warmth"></div><img class="mb-sun" src="assets/mirabeau/v1/sun.png" alt="">
  <img class="mb-roots" src="assets/mirabeau/v1/roots.png" alt="">
  <div class="mb-river-wrap"><img class="mb-water" src="assets/mirabeau/v1/water.png" alt=""></div>
@@ -538,7 +546,7 @@
 <script>
 (()=>{
  const stage=document.getElementById('mb-stage'),caption=stage.querySelector('.mb-caption');
- const states=['mb-paths','mb-light','mb-river','mb-growth','mb-harvest','mb-saplings','mb-orchard','mb-vines','mb-finished'];
+ const states=['mb-paths','mb-light','mb-river','mb-growth','mb-harvest','mb-saplings','mb-orchard','mb-vines','mb-ground-on','mb-finished'];
  let started=false,timers=[],request=0;
  const ready=Promise.all([...stage.querySelectorAll('img')].map(i=>i.decode().catch(()=>{})));
  const clear=()=>{timers.forEach(clearTimeout);timers=[]};
@@ -549,6 +557,7 @@
  later(()=>stage.classList.add('mb-light'),4000);
  later(()=>{stage.classList.add('mb-river');caption.textContent='What was blocked begins to flow.'},8000);
  later(()=>{stage.classList.add('mb-growth');caption.textContent='Roots deepen. New life emerges.'},12500);
+ later(()=>{stage.classList.add('mb-ground-on');caption.textContent='Living green spreads across the land.'},14000);
  later(()=>{stage.classList.add('mb-harvest');caption.textContent='Transformation takes root.'},17500);
  later(()=>{stage.classList.add('mb-saplings');caption.textContent='Small beginnings become rooted strength.'},16500);
  later(()=>{stage.classList.add('mb-orchard');caption.textContent='Grow deeply. Bear fruit.'},21000);
