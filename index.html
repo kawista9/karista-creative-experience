@@ -489,12 +489,12 @@
 .mb-track{height:200svh;position:relative;background:#10211b}
 .ml-stage{position:sticky;top:0;height:100svh;min-height:0;overflow:hidden;isolation:isolate;background:#101e1c;color:#fff5df;font-family:Georgia,'Times New Roman',serif}
 .ml-atmosphere{position:absolute;inset:-5%;background:linear-gradient(#081b25aa,#09251b44),url('assets/mirabeau/living/barren.png') center/cover;filter:blur(18px);opacity:.8;transition:background-image 4s}
-.ml-world{position:absolute;top:50%;left:50%;width:min(100%,calc((100svh - var(--lp-bar-space,56px))*1.5));aspect-ratio:1.5;transform:translate(-50%,-50%);isolation:isolate;transition:filter 2s,opacity 2s}
+.ml-world{position:absolute;inset:0;width:100%;height:100%;isolation:isolate;transition:filter 2s,opacity 2s}
 .ml-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
-.ml-land{opacity:0;transition:opacity 3.5s ease;z-index:1}.ml-barren{opacity:1;z-index:0}.ml-germination{z-index:1;clip-path:none;transition:opacity 5s ease-in-out}.ml-young{z-index:2;clip-path:none;transition:opacity 7s ease-in-out}.ml-fruitful{z-index:5;transition:opacity 5s ease}
+.ml-land{opacity:0;transition:opacity 3.5s ease;z-index:1}.ml-barren{opacity:1;z-index:0}.ml-germination{z-index:1;clip-path:none;transition:opacity 5s ease-in-out}.ml-young{z-index:2;clip-path:none;transition:opacity 7s ease-in-out}
 .ml-stage[data-step="1"] .ml-germination,.ml-stage[data-step="2"] .ml-germination,.ml-stage[data-step="3"] .ml-germination,.ml-stage[data-step="4"] .ml-germination{opacity:1}
 .ml-stage[data-step="2"] .ml-young,.ml-stage[data-step="3"] .ml-young,.ml-stage[data-step="4"] .ml-young{opacity:1}
-.ml-stage[data-step="4"] .ml-fruitful{opacity:1}
+
 @property --ml-root-reach{syntax:"<percentage>";inherits:false;initial-value:0%}
 .ml-roots-wrap{position:absolute;inset:0;z-index:7;pointer-events:none;--ml-root-reach:0%;mask-image:radial-gradient(circle at 16% 77%,#000 max(0%,calc(var(--ml-root-reach) - 9%)),transparent var(--ml-root-reach));opacity:0;transition:--ml-root-reach 14s cubic-bezier(.2,.55,.4,1),opacity 1s}
 .ml-roots-on .ml-roots-wrap{--ml-root-reach:120%;opacity:.7}.ml-root-image{mix-blend-mode:screen;filter:drop-shadow(0 0 3px #ffd069)}
@@ -504,9 +504,13 @@
 .ml-water{z-index:3;opacity:0;transition:opacity 5s;clip-path:polygon(47% 27%,57% 27%,75% 34%,75% 41%,61% 43%,67% 48%,88% 55%,90% 68%,85% 78%,77% 82%,44% 82%,38% 75%,36% 64%,33% 59%,26% 56%,23% 49%,24% 43%,39% 37%,50% 34%,46% 32%)}
 .ml-water-on .ml-water{opacity:.6}.ml-water img{width:100%;height:100%;object-fit:fill}.ml-stage[data-scene-active="true"] .ml-water img{animation:mlWaterFlow 6s ease-in-out infinite alternate}
 .ml-seed{position:absolute;z-index:9;left:10%;top:59%;width:12%;height:30%;object-fit:fill;opacity:0;transform:scale(.8);transform-origin:50% 55%;transition:opacity 1.8s,transform 4s;pointer-events:none}.ml-seed-awake .ml-seed{opacity:1;transform:scale(1)}.ml-seed-settled .ml-seed{opacity:0}
-.ml-plant{position:absolute;z-index:4;left:var(--x);bottom:var(--y);width:var(--w);transform:scale(.025,.01);transform-origin:50% 99%;opacity:0;transition:transform 6s cubic-bezier(.2,.55,.3,1),opacity 2s;transition-delay:var(--delay);pointer-events:none;filter:drop-shadow(1px 7px 5px #152d1b33)}
+.ml-plant{position:absolute;z-index:var(--z,4);left:var(--x);bottom:var(--y);width:var(--w);transform:scale(.025,.01);transform-origin:50% 99%;opacity:0;transition:transform var(--duration,7s) cubic-bezier(.18,.55,.3,1),opacity 2s;transition-delay:var(--delay);pointer-events:none;filter:drop-shadow(1px 7px 5px #152d1b33)}
 .ml-plant img{display:block;width:100%;height:auto;transform-origin:50% 95%}.ml-grow .ml-plant{opacity:1;transform:scale(1)}.ml-stage[data-scene-active="true"].ml-grow .ml-plant img{animation:mlCanopy 6s ease-in-out infinite alternate;animation-delay:var(--delay)}
-.ml-stage[data-step="4"] .ml-plant{opacity:0;transition:opacity 5s 0s,transform 6s}
+
+.ml-trellis{z-index:4;pointer-events:none}
+.ml-vines{z-index:5;clip-path:inset(63% 0 37% 0);opacity:0;transition:clip-path 10s ease-in-out,opacity 2s;transition-delay:5s;pointer-events:none}
+.ml-vines img{transform:translateY(-2.2%) scaleX(.87);transform-origin:95.5% 0}
+.ml-grow .ml-vines{clip-path:inset(20% 0 37% 0);opacity:1}
 .ml-shade{position:absolute;inset:0;z-index:10;pointer-events:none;background:linear-gradient(#061217ac,transparent 27%,transparent 73%,#071514cc)}
 .ml-top{position:absolute;z-index:15;inset:22px 3vw auto;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.ml-brand span{font:700 9px Arial,sans-serif;letter-spacing:.24em;color:#f2ce86}.ml-brand h2{font:400 clamp(30px,4vw,60px)/1.1 Georgia,serif;letter-spacing:.1em;margin:10px 0 7px;text-shadow:0 2px 15px #0008}.ml-brand p{font-size:clamp(12px,1.2vw,17px);margin:0;color:#f4e4c8}.ml-tools{display:flex;gap:7px}.ml-tools button{border:1px solid #e9cd8d88;border-radius:3px;background:#071b21bd;color:#fae9c8;cursor:pointer;padding:10px 12px;font:700 9px Arial,sans-serif;letter-spacing:.06em}
 .ml-caption{position:absolute;z-index:12;left:3vw;bottom:24px;transition:opacity 1s;max-width:550px;text-shadow:0 2px 8px #000}.ml-caption strong{font:400 clamp(21px,2.6vw,35px) Georgia,serif;display:block;margin-bottom:7px}.ml-caption span{font:400 clamp(12px,1.2vw,16px)/1.6 Arial,sans-serif;color:#f4e5c9}.ml-dots{display:flex;gap:7px;margin-top:15px}.ml-dots i{display:block;width:20px;height:3px;background:#f8dba848;transition:background 1s}.ml-dots i.is-lit{background:#ffe6ac}
@@ -520,7 +524,7 @@
 @keyframes mlLifeTravel{from{mask-position:100% 0}to{mask-position:0% 0}}
 @keyframes mlWaterFlow{from{transform:translateY(-.15%) scaleX(1.001);filter:brightness(.95)}to{transform:translateY(.15%) scaleX(.999);filter:brightness(1.07)}}
 @keyframes mlCanopy{from{transform:rotate(-.3deg)}to{transform:rotate(.3deg)}}
-@media(max-width:700px){.mb-track{height:190svh}.ml-top{inset:18px 5vw auto;gap:12px}.ml-brand h2{font-size:30px;letter-spacing:.06em;margin-top:12px}.ml-brand span{font-size:8px;letter-spacing:.12em}.ml-brand p{font-size:12px;line-height:1.5;max-width:220px}.ml-tools{flex-direction:column;gap:6px}.ml-tools button{font-size:8px;padding:8px}.ml-caption{left:5vw;bottom:35px;max-width:87vw}.ml-caption strong{font-size:25px}.ml-caption span{font-size:12px}.ml-world{width:100%;top:51%}.ml-atmosphere{filter:blur(20px);opacity:.5}.ml-shade{background:linear-gradient(#071a20cc,transparent 35%,transparent 68%,#071a20dd)}.ml-offer{flex-direction:column;gap:19px;padding:115px 7vw 26px;text-align:center}.ml-cover{height:min(32svh,280px);max-width:70%;box-shadow:8px 12px 28px #0008}.ml-offer-copy h3{font-size:29px;margin:10px 0}.ml-offer-copy p{font-size:14px;line-height:1.5;margin-bottom:16px}.ml-offer-copy .kicker{font-size:8px}.ml-buy{padding:14px 18px;font-size:10px}.ml-offer-copy small{font-size:10px}.ml-complete .ml-brand p{opacity:0}}
+@media(max-width:700px){.mb-track{height:190svh}.ml-top{inset:18px 5vw auto;gap:12px}.ml-brand h2{font-size:30px;letter-spacing:.06em;margin-top:12px}.ml-brand span{font-size:8px;letter-spacing:.12em}.ml-brand p{font-size:12px;line-height:1.5;max-width:220px}.ml-tools{flex-direction:column;gap:6px}.ml-tools button{font-size:8px;padding:8px}.ml-caption{left:5vw;bottom:35px;max-width:87vw}.ml-caption strong{font-size:25px}.ml-caption span{font-size:12px}.ml-world{inset:0;width:100%;height:100%}.ml-atmosphere{filter:blur(20px);opacity:.5}.ml-shade{background:linear-gradient(#071a20cc,transparent 35%,transparent 68%,#071a20dd)}.ml-offer{flex-direction:column;gap:19px;padding:115px 7vw 26px;text-align:center}.ml-cover{height:min(32svh,280px);max-width:70%;box-shadow:8px 12px 28px #0008}.ml-offer-copy h3{font-size:29px;margin:10px 0}.ml-offer-copy p{font-size:14px;line-height:1.5;margin-bottom:16px}.ml-offer-copy .kicker{font-size:8px}.ml-buy{padding:14px 18px;font-size:10px}.ml-offer-copy small{font-size:10px}.ml-complete .ml-brand p{opacity:0}}
 @media(prefers-reduced-motion:reduce){.ml-stage *{animation:none!important;transition:none!important}}
 </style>
 <div class="mb-track" id="mirabeau"><section class="mb-stage ml-stage" id="mb-stage" data-step="0" data-scene-active="false" aria-label="Mirabeau: from buried seed to fruitful garden">
@@ -528,14 +532,27 @@
 <div class="ml-world" role="img" aria-label="A barren landscape with a buried seed and murky river transforms into a lush fruitful garden as glowing roots spread beneath the soil.">
 <img class="ml-layer ml-land ml-barren" src="assets/mirabeau/living/barren.png" width="1536" height="1024" alt="" decoding="async">
 <img class="ml-layer ml-land ml-germination" src="assets/mirabeau/living/germination.png" width="1536" height="1024" alt="" decoding="async">
-<img class="ml-layer ml-land ml-young" src="assets/mirabeau/living/young.png" width="1536" height="1024" alt="" decoding="async">
+<img class="ml-layer ml-land ml-young" src="assets/mirabeau/banks/terrain.png" width="1536" height="1024" alt="" decoding="async">
 <div class="ml-layer ml-water" aria-hidden="true"><img src="assets/mirabeau/living/water.png" alt="" decoding="async"></div>
 <img class="ml-seed" src="assets/mirabeau/living/seed.png" alt="" decoding="async">
-<div class="ml-plant" style="--x:-10%;--y:38%;--w:37%;--delay:0s"><img src="assets/mirabeau/living/fig.png" alt="" decoding="async"></div>
-<div class="ml-plant" style="--x:9%;--y:52%;--w:27%;--delay:1.3s"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
-<div class="ml-plant" style="--x:23%;--y:56%;--w:19%;--delay:2.4s"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
-<div class="ml-plant" style="--x:60%;--y:38%;--w:40%;--delay:1.8s"><img src="assets/mirabeau/living/grapes.png" alt="" decoding="async"></div>
-<img class="ml-layer ml-land ml-fruitful" src="assets/mirabeau/living/fruitful.png" width="1536" height="1024" alt="" decoding="async">
+<div class="ml-plant" data-bank="left" data-anchor-x="12" data-anchor-y="61" style="--x:-4.5%;--y:39%;--w:33%;--delay:0s;--z:6"><img src="assets/mirabeau/living/fig.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="19" data-anchor-y="44" style="--x:8.5%;--y:56%;--w:21%;--delay:3s;--z:5"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="29" data-anchor-y="36" style="--x:21.5%;--y:64%;--w:15%;--delay:6s;--z:4"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="6" data-anchor-y="39" style="--x:-2.0%;--y:61%;--w:16%;--delay:5s;--z:4"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="17" data-anchor-y="32" style="--x:11.5%;--y:68%;--w:11%;--delay:1.5s;--z:4"><img src="assets/mirabeau/living/fig.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="35" data-anchor-y="30" style="--x:30.5%;--y:70%;--w:9%;--delay:8s;--z:4"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="43" data-anchor-y="28" style="--x:40.5%;--y:72%;--w:5%;--delay:10s;--z:4"><img src="assets/mirabeau/living/fig.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="49" data-anchor-y="27.5" style="--x:47.25%;--y:72.5%;--w:3.5%;--delay:7s;--z:4"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="7" data-anchor-y="29" style="--x:3.0%;--y:71%;--w:8%;--delay:4s;--z:4"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="right" data-anchor-x="82" data-anchor-y="30" style="--x:78.0%;--y:70%;--w:8%;--delay:2s;--z:4"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="right" data-anchor-x="94" data-anchor-y="32" style="--x:89.0%;--y:68%;--w:10%;--delay:9s;--z:4"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="right" data-anchor-x="71" data-anchor-y="29" style="--x:68.5%;--y:71%;--w:5%;--delay:11s;--z:4"><img src="assets/mirabeau/living/fig.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="right" data-anchor-x="61" data-anchor-y="27" style="--x:59.25%;--y:73%;--w:3.5%;--delay:12s;--z:4"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="right" data-anchor-x="55" data-anchor-y="26.5" style="--x:53.75%;--y:73.5%;--w:2.5%;--delay:8.5s;--z:4"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="left" data-anchor-x="4" data-anchor-y="51" style="--x:-5.0%;--y:49%;--w:18%;--delay:11s;--z:5"><img src="assets/mirabeau/living/citrus.png" alt="" decoding="async"></div>
+<div class="ml-plant" data-bank="right" data-anchor-x="91" data-anchor-y="44" style="--x:85.0%;--y:56%;--w:12%;--delay:7.5s;--z:4"><img src="assets/mirabeau/living/pomegranate.png" alt="" decoding="async"></div>
+<img class="ml-layer ml-trellis" src="assets/mirabeau/banks/frame.png" alt="" decoding="async">
+<div class="ml-layer ml-vines" aria-hidden="true"><img class="ml-layer" src="assets/mirabeau/banks/vines.png" alt="" decoding="async"></div>
 <div class="ml-roots-wrap" aria-hidden="true"><img class="ml-layer ml-root-image" src="assets/mirabeau/living/roots.png" alt="" decoding="async"></div>
 <div class="ml-life-current" aria-hidden="true"><img class="ml-layer" src="assets/mirabeau/living/roots.png" alt="" decoding="async"></div>
 </div><div class="ml-shade" aria-hidden="true"></div>
@@ -561,10 +578,10 @@
  later(()=>{stage.dataset.step='1';caption(1)},4500);
  later(()=>stage.classList.add('ml-seed-settled'),5500);
  later(()=>stage.classList.add('ml-water-on'),10000);
- later(()=>{stage.dataset.step='2';caption(2)},12000);
- later(()=>{stage.dataset.step='3';stage.classList.add('ml-grow')},19500);
- later(()=>{stage.dataset.step='4';caption(3)},27500);
- later(revealBook,36000);
+ later(()=>{stage.dataset.step='2';stage.classList.add('ml-grow');caption(2)},10000);
+ later(()=>{stage.dataset.step='3'},21000);
+ later(()=>{stage.dataset.step='4';caption(3)},30500);
+ later(revealBook,39000);
  }
  document.getElementById('mb-replay').addEventListener('click',()=>window.scenePlayback.replay(stage));document.getElementById('mb-again').addEventListener('click',()=>window.scenePlayback.replay(stage));document.getElementById('mb-skip').addEventListener('click',()=>{if(stage.dataset.sceneActive==='true')finish()});
  (window.sceneLifecycles ||= []).push({stage,anchor:'mirabeau',play,reset});
