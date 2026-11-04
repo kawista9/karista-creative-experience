@@ -962,5 +962,50 @@ wheel.addEventListener('wheel',e=>{e.preventDefault();const now=Date.now();if(no
 wheel.addEventListener('pointerdown',e=>{if(e.target.closest('.xd-hub'))return;drag={x:e.clientX,y:e.clientY,id:e.pointerId};suppress=false});
 wheel.addEventListener('pointerup',e=>{if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.hypot(dx,dy)>24){suppress=true;move((Math.abs(dx)>Math.abs(dy)?dx:dy)>0?1:-1);setTimeout(()=>suppress=false,0)}drag=null});
 wheel.addEventListener('pointercancel',()=>{drag=null});document.addEventListener('click',e=>{if(!panel.hidden&&!root.contains(e.target)){panel.hidden=true;toggle.setAttribute('aria-expanded','false')}});choose(0)})();
-</script></body>
+</script><style>
+/* Readable typography for the animated experience scenes. */
+#theater,#gm-theater,#mb-stage,#mw-stage{--motion-font:"Avenir Next","Segoe UI",Arial,Helvetica,sans-serif}
+#theater .er5-caption{font:800 clamp(19px,1.65vw,29px)/1.45 var(--motion-font);letter-spacing:.035em;left:7%;right:7%;text-shadow:0 2px 6px #000,0 0 22px #000c}
+#theater .er5-book h2{font-family:var(--motion-font);font-weight:800;letter-spacing:-.025em}
+#theater .er5-book p{font:700 clamp(18px,1.8vw,26px)/1.4 var(--motion-font)}
+#theater .er5-kicker{font:800 clamp(13px,1.1vw,18px)/1.5 var(--motion-font);letter-spacing:.12em}
+#gm-theater .gm4-title h2{font-family:var(--motion-font);font-weight:800;letter-spacing:-.025em}
+#gm-theater .gm4-title p{font:700 clamp(18px,1.5vw,25px)/1.45 var(--motion-font);text-shadow:0 2px 10px #000b}
+#gm-theater .gm4-title .gm4-small{font:700 clamp(16px,1.3vw,22px)/1.5 var(--motion-font);white-space:normal}
+#gm-theater .gm4-title .gm4-eyebrow{font:800 clamp(12px,1vw,17px)/1.5 var(--motion-font);letter-spacing:.12em}
+#gm-theater .gm4-footertext{font:800 clamp(14px,1.15vw,20px)/1.5 var(--motion-font);letter-spacing:.12em}
+#mb-stage .ml-brand h2{font-family:var(--motion-font);font-weight:800;letter-spacing:.015em}
+#mb-stage .ml-brand span{font:800 clamp(13px,1.1vw,18px)/1.4 var(--motion-font);letter-spacing:.12em}
+#mb-stage .ml-brand p{font:700 clamp(17px,1.4vw,23px)/1.45 var(--motion-font)}
+#mb-stage .ml-caption{max-width:min(760px,88vw);text-shadow:0 2px 6px #000,0 0 20px #000d}
+#mb-stage .ml-caption strong{font:800 clamp(27px,2.6vw,43px)/1.2 var(--motion-font)}
+#mb-stage .ml-caption span{font:700 clamp(18px,1.5vw,25px)/1.5 var(--motion-font);color:#fff1d5}
+#mb-stage .ml-offer-copy h3{font-family:var(--motion-font);font-weight:800}
+#mb-stage .ml-offer-copy p{font:700 clamp(18px,1.6vw,24px)/1.5 var(--motion-font)}
+#mw-stage .mw2-caption{font:800 clamp(19px,1.65vw,28px)/1.4 var(--motion-font);text-shadow:0 2px 8px #000}
+#mw-stage .mw2-art-label{font:800 clamp(13px,1.1vw,18px)/1.5 var(--motion-font);letter-spacing:.08em}
+#mw-stage .mw2-intro p{font-family:var(--motion-font);font-weight:700}
+#mw-stage .mw2-features span{font:800 clamp(13px,1vw,17px)/1.4 var(--motion-font)}
+#theater .er5-controls button,#gm-theater .gm4-controls button,#mb-stage .ml-tools button{font:800 clamp(12px,.95vw,16px)/1.4 var(--motion-font);letter-spacing:.035em;min-height:44px}
+@media(max-width:700px){
+#theater .er5-caption{font-size:18px;line-height:1.45;bottom:14%;letter-spacing:.02em}
+#theater .er5-book p{font-size:18px}#theater .er5-kicker{font-size:12px}
+#gm-theater .gm4-title p{font-size:16px;line-height:1.45}
+#gm-theater .gm4-title .gm4-small{font-size:15px;margin-bottom:10px}
+#gm-theater .gm4-title .gm4-eyebrow{font-size:11px;letter-spacing:.07em}
+#gm-theater .gm4-footertext{font-size:13px;letter-spacing:.08em;bottom:8%}
+#mb-stage .ml-brand h2{font-size:32px}#mb-stage .ml-brand span{font-size:12px}
+#mb-stage .ml-brand p{font-size:16px;max-width:230px}
+#mb-stage .ml-top{flex-wrap:wrap;gap:10px}
+#mb-stage .ml-caption strong{font-size:26px}
+#mb-stage .ml-caption span{font-size:17px}
+#mb-stage .ml-offer-copy p{font-size:17px}
+#mw-stage .mw2-caption{font-size:16px;line-height:1.4;max-width:none}
+#mw-stage .mw2-bottom{flex-direction:column;align-items:flex-start;gap:8px;bottom:18px}
+#mw-stage .mw2-intro{bottom:110px}
+#mw-stage .mw2-art-label{font-size:11px;letter-spacing:.035em;left:15%;right:15%}
+#mw-stage .mw2-features span{font-size:12px}
+#theater .er5-controls button,#gm-theater .gm4-controls button,#mb-stage .ml-tools button{font-size:11px;padding:8px 10px}
+}
+</style></body>
 </html>
