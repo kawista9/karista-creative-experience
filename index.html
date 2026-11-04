@@ -311,10 +311,39 @@
 @media(max-width:700px){.arrival .arrival-art{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 22px;width:min(470px,94%);height:auto;margin-top:5px;margin-bottom:14px}.arrival .product-symbol img{height:clamp(120px,34vw,170px)}.product-symbol-label{font-size:10px;letter-spacing:.1em;min-height:33px;margin-top:7px}.product-symbol::before{bottom:43px;height:10px}.arrival{padding-bottom:80px}.product-symbol:hover img,.product-symbol:focus-visible img{transform:translateY(-8px) scale(1.04)}}
 @media(prefers-reduced-motion:reduce){.product-symbol,.product-symbol *,.product-symbol::before{transition:none!important}}
 </style>
+<style>
+.site-header .meet-menu{letter-spacing:normal}
+.meet-trigger{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none;color:#f8e7c6;font:700 11px/1.4 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.meet-trigger::-webkit-details-marker{display:none}.meet-trigger img{width:42px;height:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 18px #e9bd732b}
+.meet-chevron{font-size:23px;line-height:1;transition:transform .25s}.meet-menu[open] .meet-chevron{transform:rotate(180deg)}
+.meet-trigger:focus-visible,.meet-close:focus-visible{outline:2px solid #f3d392;outline-offset:6px}
+.meet-panel{position:absolute;top:calc(100% - 10px);left:clamp(16px,4vw,76px);right:clamp(16px,4vw,76px);max-width:1200px;max-height:calc(100svh - 160px);overflow-y:auto;overscroll-behavior:contain;display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,56px);padding:clamp(28px,4vw,52px);border:1px solid #c8a76a70;border-radius:8px;background:linear-gradient(135deg,#112633,#07121dfc);box-shadow:0 24px 80px #000b;color:#eee2cb;text-transform:none;letter-spacing:normal;font:17px/1.75 Georgia,serif;text-align:left}
+.meet-close{position:absolute;top:10px;right:14px;border:0;background:transparent;color:#f3d392;font:28px Arial;cursor:pointer}
+.meet-panel .meet-eyebrow{font:700 10px/1.6 Arial,sans-serif;letter-spacing:.2em;color:#e9bd73;margin:0 0 12px}
+.meet-panel h2{font:400 clamp(32px,4vw,48px)/1.1 Georgia,serif;color:#f9f0da;margin:0 0 22px}.meet-panel h3{font:400 27px/1.2 Georgia,serif;margin:0 0 15px}.meet-panel p{margin:0 0 18px}
+.meet-social{min-width:0}.meet-tiktok{min-height:220px;max-width:100%;overflow:hidden;border-radius:6px;background:#fff;color:#102331}.meet-tiktok .tiktok-embed{margin:0 auto!important;width:100%!important;max-width:100%!important}.meet-tiktok iframe{max-width:100%!important}
+.site-header .meet-panel .meet-tiktok-link{display:inline-flex;margin-top:18px;color:#f3d392;text-decoration:none;border-bottom:1px solid #bda26e;padding-bottom:5px;font:700 11px/1.6 Arial,sans-serif;letter-spacing:.12em}
+@media(max-width:650px){.meet-trigger{font-size:9px;letter-spacing:.06em;gap:6px}.meet-trigger img{width:30px;height:30px}.meet-panel{grid-template-columns:1fr;max-height:calc(100svh - 150px);padding:32px 20px;left:12px;right:12px;font-size:16px}.site-header{gap:10px}.meet-panel .meet-social{padding-top:16px;border-top:1px solid #c8a76a40}}
+@media(prefers-reduced-motion:reduce){.meet-chevron{transition:none}}
+</style>
 </head>
 <body>
   <header class="site-header">
-    <a class="monogram" href="#top">KARISTA WILLIAMS</a>
+    <details class="meet-menu" id="meet-myelinated">
+<summary class="meet-trigger"><img src="assets/brand/myelinated-melanin.png" alt="" width="42" height="42"><span>Meet Myelinated Melanin</span><span class="meet-chevron" aria-hidden="true">⌄</span></summary>
+<section class="meet-panel" aria-labelledby="meet-title">
+<button class="meet-close" type="button" aria-label="Close introduction">×</button>
+<div class="meet-bio">
+<p class="meet-eyebrow">FAITH · EDUCATION · TECHNOLOGY</p>
+<h2 id="meet-title">Hi, I’m Karista.</h2>
+<p>I’m Karista Williams, the educator, author, and creator behind Myelinated Melanin. I hold a master’s degree in Curriculum and Instruction with a focus on Learning, Design, and Technology from the University of Houston, and a bachelor’s degree in Psychology from Dillard University. My work brings together faith, learning, and technology to help people bring their God-given visions to life.</p>
+<p>My experience includes teaching middle school mathematics, serving as a department chair, and coaching educators. Those experiences shaped how I design: making ideas clearer, creating support where learners need it, and helping people see what they are capable of becoming. My studies in data analytics at Rice University opened another door into coding, problem solving, and digital creation.</p>
+<p>Today, that journey lives in my 8th Grade Math Digital Learning Wall, my books Erchomai and Mirabeau, and the Ginomai course and journals. Through Myelinated Melanin, I’m continuing to build learning experiences and share the process of turning vision into something visible. Join me as we learn, create, and keep becoming.</p>
+</div>
+<div class="meet-social"><p class="meet-eyebrow">COME ALONG FOR THE JOURNEY</p><h3>See what I’m creating.</h3><p>Faith, growth, and bringing ideas to life—follow along with me on TikTok.</p>
+<div class="meet-tiktok"><blockquote class="tiktok-embed" cite="https://www.tiktok.com/@karista.williams" data-unique-id="karista.williams" data-embed-type="creator" style="max-width:720px;min-width:288px;"><section><a target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@karista.williams">@karista.williams</a></section></blockquote></div>
+<a class="meet-tiktok-link" href="https://www.tiktok.com/@karista.williams" target="_blank" rel="noopener noreferrer">EXPLORE MY TIKTOK ↗</a>
+</div></section></details>
     <a href="#experience">THE EXPERIENCE ↓</a>
   </header>
   <main id="top">
@@ -823,5 +852,8 @@ body{padding-top:var(--lp-bar-space)}
 })();
 </script>
 
+<script>
+(()=>{const menu=document.getElementById('meet-myelinated');const trigger=menu.querySelector('summary');const close=()=>{menu.open=false;trigger.focus()};menu.querySelector('.meet-close').addEventListener('click',close);menu.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close()}});menu.addEventListener('toggle',()=>{if(menu.open&&!document.getElementById('meet-tiktok-script')){const script=document.createElement('script');script.id='meet-tiktok-script';script.src='https://www.tiktok.com/embed.js';script.async=true;document.body.appendChild(script)}})})();
+</script>
 </body>
 </html>
