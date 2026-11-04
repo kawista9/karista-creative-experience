@@ -1055,5 +1055,27 @@ wheel.addEventListener('pointercancel',()=>{drag=null});document.addEventListene
 #mb-stage .ml-caption strong{font-size:20px}
 #mb-stage .ml-caption span{font-size:14px}
 }
+</style><style>
+@media(max-width:700px){
+/* Phone scene uses document flow so artwork, labels and copy never share coordinates. */
+#mw-stage{display:flex;flex-direction:column;align-items:stretch;height:auto;min-height:calc(100svh - var(--lp-bar-space));overflow:hidden;padding-bottom:20px;box-sizing:border-box}
+#mw-stage .mw2-top{position:relative;inset:auto;order:0;margin:18px 5% 8px;flex-wrap:wrap;align-items:center;gap:10px}
+#mw-stage .mw2-brand{max-width:none;font-size:11px;line-height:1.5}
+#mw-stage .mw2-tools{flex-wrap:wrap}
+#mw-stage .mw2-art,#mw-stage.mw2-intro-on .mw2-art{position:relative;inset:auto;left:auto;top:auto;order:1;align-self:center;width:min(100%,460px);aspect-ratio:1.5;transform:none;margin:0 0 42px;flex-shrink:0;transition:none}
+#mw-stage .mw2-art-label{bottom:-24px;left:5%;right:5%;font-size:11px;line-height:1.4;gap:16px;letter-spacing:.03em;text-align:center}
+#mw-stage .mw2-art-label span{flex:1}
+#mw-stage .mw2-intro,#mw-stage.mw2-intro-on .mw2-intro{position:relative;inset:auto;left:auto;right:auto;top:auto;bottom:auto;order:2;transform:none;margin:0 6%;text-align:center}
+#mw-stage .mw2-eyebrow{font-size:12px;line-height:1.5;letter-spacing:.05em;margin-bottom:12px}
+#mw-stage .mw2-intro h2{font-size:clamp(38px,10vw,54px);line-height:1.08;letter-spacing:-.035em;margin:0 0 18px}
+#mw-stage .mw2-intro p{font-size:17px;line-height:1.5;margin-bottom:16px}
+#mw-stage .mw2-features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:16px 0 20px}
+#mw-stage .mw2-features span{display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1.4;padding:9px 6px;letter-spacing:.015em}
+#mw-stage .mw2-entry{box-sizing:border-box;width:100%;font-size:13px;line-height:1.4;padding:15px 14px;gap:10px}
+#mw-stage .mw2-entry span{flex-shrink:0}
+#mw-stage .mw2-invite small{font-size:12px;line-height:1.5}
+#mw-stage .mw2-bottom{position:relative;inset:auto;left:auto;right:auto;bottom:auto;order:3;margin:28px 6% 0;padding-right:55px;flex-direction:column;align-items:flex-start;gap:10px}
+#mw-stage .mw2-caption{font-size:16px;line-height:1.45;max-width:none}
+}
 </style></body>
 </html>
