@@ -903,7 +903,11 @@ body{padding-top:var(--lp-bar-space)}
 </style>
 <div class="lp-dock" id="life-dock" data-playing="false" aria-label="Life Playlist music controls">
 <button type="button" class="lp-open-button" id="life-open" aria-haspopup="dialog" aria-controls="life-playlist"><span class="lp-note" aria-hidden="true">♫</span><span class="lp-dock-copy"><strong>EXPLORE THE LIFE PLAYLIST</strong><small id="life-dock-track">12 tribes. 12 songs. Find your sound.</small></span></button>
-<button type="button" class="lp-power" id="life-power" role="switch" aria-checked="false" aria-label="Background music">OFF</button>
+<div class="lp-ribbon-transport" role="group" aria-label="Music track controls">
+<button type="button" id="lp-ribbon-previous" aria-label="Previous song" title="Previous song"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 4h3v16H5zM19 4v16L9 12z"/></svg></button>
+<button type="button" id="lp-ribbon-replay" aria-label="Replay current song" title="Replay current song"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></svg></button>
+<button type="button" id="lp-ribbon-next" aria-label="Next song" title="Next song"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 4h3v16h-3zM5 4v16l10-8z"/></svg></button>
+</div><button type="button" class="lp-power" id="life-power" role="switch" aria-checked="false" aria-label="Background music">OFF</button>
 <a class="lp-back-top" href="#top" aria-label="Back to top">BACK TO TOP <span aria-hidden="true">↑</span></a>
 </div>
 <dialog class="lp-dialog" id="life-playlist" aria-labelledby="lp-title" aria-describedby="lp-description">
@@ -925,6 +929,9 @@ body{padding-top:var(--lp-bar-space)}
  function minimize(){if(dialog.open)dialog.close();document.body.classList.remove('lp-open');if(returnFocus&&returnFocus.isConnected)returnFocus.focus()}
  function open(){if(!dialog.open){returnFocus=document.activeElement;dialog.showModal();document.body.classList.add('lp-open');preview(current)}if(!everEnabled)playTrack(current)}
  byId('life-open').addEventListener('click',open);power.addEventListener('click',()=>{if(!audio.paused)stop();else playTrack(current)});toggle.addEventListener('click',()=>{if(audio.paused)playTrack(current);else{audio.pause();byId('lp-now').textContent='Paused: '+names[current];display()}});
+ byId('lp-ribbon-previous').addEventListener('click',()=>playTrack(current-1));
+ byId('lp-ribbon-next').addEventListener('click',()=>playTrack(current+1));
+ byId('lp-ribbon-replay').addEventListener('click',()=>{if(audio.readyState>0)audio.currentTime=0;playTrack(current)});
  byId('lp-stop-close').addEventListener('click',()=>{stop();minimize()});['lp-header-minimize','lp-keep-listening'].forEach(id=>byId(id).addEventListener('click',minimize));dialog.addEventListener('cancel',e=>{e.preventDefault();minimize()});dialog.addEventListener('close',()=>document.body.classList.remove('lp-open'));
  segments.forEach((g,i)=>{g.addEventListener('click',()=>playTrack(i));g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();playTrack(i)}});g.addEventListener('mouseenter',()=>preview(i));g.addEventListener('focus',()=>preview(i));g.addEventListener('mouseleave',()=>preview(current));g.addEventListener('blur',()=>preview(current))});
  select.addEventListener('change',()=>playTrack(Number(select.value)));byId('lp-previous').addEventListener('click',()=>playTrack(current-1));byId('lp-next').addEventListener('click',()=>playTrack(current+1));byId('lp-volume').addEventListener('input',e=>audio.volume=Number(e.target.value));seek.addEventListener('input',()=>{if(Number.isFinite(audio.duration))audio.currentTime=Number(seek.value)/100*audio.duration});
@@ -1076,6 +1083,22 @@ wheel.addEventListener('pointercancel',()=>{drag=null});document.addEventListene
 #mw-stage .mw2-invite small{font-size:12px;line-height:1.5}
 #mw-stage .mw2-bottom{position:relative;inset:auto;left:auto;right:auto;bottom:auto;order:3;margin:28px 6% 0;padding-right:55px;flex-direction:column;align-items:flex-start;gap:10px}
 #mw-stage .mw2-caption{font-size:16px;line-height:1.45;max-width:none}
+}
+</style><style>
+.lp-ribbon-transport{display:flex;align-items:center;gap:3px;padding:0 8px;border-left:1px solid #c4a66a55}
+.lp-dock .lp-ribbon-transport button{display:grid;place-items:center;width:42px;height:42px;padding:0;border-radius:50%;color:#f7dfae}
+.lp-dock .lp-ribbon-transport button:hover{background:#ffffff12;color:#a6ffe7}
+.lp-dock .lp-ribbon-transport button:active{background:#ffffff22}
+.lp-ribbon-transport svg{pointer-events:none}
+@media(max-width:600px){
+:root{--lp-bar-height:96px}
+.lp-dock{display:grid;grid-template-columns:1fr auto auto;grid-template-rows:44px 44px;gap:0 6px;padding:calc(4px + env(safe-area-inset-top,0px)) 12px 4px;box-sizing:border-box;align-content:center}
+.lp-open-button{grid-column:1/-1;grid-row:1;justify-self:start;width:100%;min-width:0;padding:3px 4px!important}
+.lp-dock-copy{min-width:0}.lp-dock-copy strong{font-size:10px;letter-spacing:.1em}
+.lp-dock-copy small{font-size:11px;max-width:calc(100vw - 76px)}
+.lp-ribbon-transport{grid-column:1;grid-row:2;justify-self:start;border-left:0;padding:0;gap:8px}
+.lp-power{grid-column:2;grid-row:2;min-height:40px;min-width:44px;padding:8px!important}
+.lp-back-top{grid-column:3;grid-row:2;margin-left:0;padding:10px 6px;font-size:10px;min-height:40px;box-sizing:border-box}
 }
 </style></body>
 </html>
